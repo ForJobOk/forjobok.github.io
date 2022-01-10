@@ -24,7 +24,7 @@ params:
   customCSS: false
 
   favicon: "/images/maro.png"
-  description: "KENTO-Portfolio."
+  description: "Welcome to my portfolio."
 
   # home
   disable_home: false

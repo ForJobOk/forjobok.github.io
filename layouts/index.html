@@ -16,6 +16,10 @@
   {{- partial "sections/v1/head.html" . -}}
 </head>
 
+<head>
+  <meta property="og:image" content="{{ .Site.Params.favicon }}">
+</head>
+
 <body>
   {{- partial "sections/v1/home.html" . -}}
   {{- partial "sections/v1/blog.html" . -}}
