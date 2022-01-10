@@ -20,7 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="726beb64-53b4-4f40-a280-cd9f5c969d01" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archetypes/default.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archetypes/v3.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/achiv.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/education.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/profile.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/project.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641800567189</updated>
       <workItem from="1641800569217" duration="54000" />
-      <workItem from="1641801332297" duration="13299000" />
+      <workItem from="1641801332297" duration="13876000" />
     </task>
     <servers />
   </component>
