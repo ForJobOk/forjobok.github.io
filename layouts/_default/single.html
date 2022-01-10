@@ -85,40 +85,6 @@
           </article>
         </div>
       </div>
-      <div class="col-md-3 py-4">
-        <div class="bg-light shadow p-4 rounded mb-2 bg-light">
-          <h4>Table of content</h4>
-          {{.TableOfContents}}
-        </div>
-
-        <div class="bg-light shadow p-4 rounded mt-2 bg-light">
-          <h4>Share article with</h4>
-          <ul>
-            <li>
-              <a target="blank" class="text-info"
-                href="https://twitter.com/share?text={{ .Title }}&url={{ .Site.Params.hostName }}{{ .Permalink | absURL }}">
-                Twitter
-              </a>
-            </li>
-            <li>
-              <a target="blank" class="text-success"
-                href="https://api.whatsapp.com/send?text={{ .Title }}: {{ .Site.Params.hostName }}{{ .Permalink | absURL }}"
-                data-action="share/whatsapp/share">
-                Whatsapp
-              </a>
-            </li>
-            <li>
-              <a class="text-danger" target="blank"
-                href="mailto:?subject={{ .Title }}&amp;body=Check out this site {{ .Site.Params.hostName }}{{ .Permalink | absURL }}">
-                Email
-              </a>
-            </li>
-          </ul>
-
-
-
-        </div>
-      </div>
       {{ template "_internal/disqus.html" . }}
     </div>
   </div>
