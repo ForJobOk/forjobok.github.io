@@ -22,16 +22,8 @@
     <list default="true" id="726beb64-53b4-4f40-a280-cd9f5c969d01" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hugo.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hugo.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/blog/emoji-support.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/blog/markdown-syntax.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/blog/placeholder-text.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/blog/rich-content.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/project/example.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/project/example.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layouts/partials/sections/v3/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/partials/sections/v3/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/fav.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/profile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/theme.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/v3.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/project/example.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/partials/sections/v3/projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/partials/sections/v3/projects.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641800567189</updated>
       <workItem from="1641800569217" duration="54000" />
-      <workItem from="1641801332297" duration="9956000" />
+      <workItem from="1641801332297" duration="12903000" />
     </task>
     <servers />
   </component>

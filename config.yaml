@@ -58,25 +58,29 @@ params:
   # Experience
   disable_experience: false
   experience:
-    - company: "PsychicVRLab"
+    - company: "Psychic VR Lab"
+      id: "PsychicVRLab"
       role: "XR engineer"
       startdate: Oct 2021
       enddate: present
       featuredpoints:
         - point: Work as Unity engineer and develop XR platform.
     - company: "Up-frontier"
+      id: "Up-frontier"
       role: "XR engineer"
       startdate: Feb 2020
       enddate: Sep 2021
       featuredpoints:
         - point: Research and development about XR.
-    - company: "NANOMedia"
+    - company: "NANO Media"
+      id: "NANOMedia"
       role: "VR engineer"
       startdate: Oct 2018
       enddate: Jan 2020
       featuredpoints:
         - point: Develop VR application for safety education.
-    - company: "AsahiSoftDrinkSalesCo"
+    - company: "Asahi Soft Drink Sales"
+      id: "AsahiSoftDrinkSales"
       role: "Sales"
       startdate: Apr 2017
       enddate: Sep 2018
