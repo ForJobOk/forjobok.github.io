@@ -3,10 +3,6 @@
 {{ if eq .Site.Params.version 1 }}
 
 <head>
-  <meta property="og:image" content="https://forjobok.github.io/KENTO-Portfolio/images/maro.png">
-</head>
-
-<head>
   <title>{{- .Site.Title -}}</title>
   <!-- stylesheets -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -55,9 +51,12 @@
 {{ else if eq .Site.Params.version 3 }}
 
 <head>
+  <meta property="og:image" content="https://forjobok.github.io/KENTO-Portfolio/images/maro.png">
+</head>
+
+<head>
   <title>{{- .Site.Title -}}</title>
   <meta name="description" content="{{ .Site.Params.description }}">
-
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
