@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on KENTO-Portfolio</title>
-    <link>https://forjobok.github.io/project/</link>
+    <link>https://forjobok.github.io/KENTO-Portfolio/project/</link>
     <description>Recent content in Projects on KENTO-Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>jp</language><atom:link href="https://forjobok.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    <language>jp</language><atom:link href="https://forjobok.github.io/KENTO-Portfolio/project/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shader article on Zenn</title>
-      <link>https://forjobok.github.io/project/zenn/</link>
+      <link>https://forjobok.github.io/KENTO-Portfolio/project/zenn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://forjobok.github.io/project/zenn/</guid>
+      <guid>https://forjobok.github.io/KENTO-Portfolio/project/zenn/</guid>
       <description>I write down Shader I learn.
 A goal is 100 articles.</description>
     </item>
     
     <item>
       <title>Technical article on Qiita</title>
-      <link>https://forjobok.github.io/project/qiita/</link>
+      <link>https://forjobok.github.io/KENTO-Portfolio/project/qiita/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://forjobok.github.io/project/qiita/</guid>
+      <guid>https://forjobok.github.io/KENTO-Portfolio/project/qiita/</guid>
       <description>I won&amp;rsquo;t hesitate to publish the article. I believe that I&amp;rsquo;m sure it will be useful to someone.
 Another reason is that I want to keep a record of my growth.
 I am not a special person, and my growth will encourage others to work towards their goals.</description>
