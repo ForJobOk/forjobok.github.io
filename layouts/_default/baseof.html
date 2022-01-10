@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+  <meta property="og:image" content="{{ .Site.Params.favicon }}">
+</head>
+
+<head>
 
   {{ if eq .Site.Params.version 1 }}
   {{- partial "sections/v1/head.html" . -}}
