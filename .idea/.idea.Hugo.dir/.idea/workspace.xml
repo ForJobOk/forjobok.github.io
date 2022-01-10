@@ -19,7 +19,25 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="726beb64-53b4-4f40-a280-cd9f5c969d01" name="Default Changelist" comment="" />
+    <list default="true" id="726beb64-53b4-4f40-a280-cd9f5c969d01" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/docs/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/categories/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/categories/index.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/categories/page/1/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/project/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/project/index.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/project/page/1/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/project/qiita/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/project/zenn/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/sitemap.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tags/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tags/index.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/tags/page/1/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/_default/baseof.html" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/_default/baseof.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
