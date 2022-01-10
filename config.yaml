@@ -1,10 +1,12 @@
-baseURL: "https://hugo-profile.netlify.app"
+publishDir: "docs"
+canonifyurls: true
+baseURL: "https://forjobok.github.io/"
 languageCode: "jp"
 title: "KENTO-Portfolio"
 theme: "./.."
 relativeURLs: true
 
-googleanalytics: UA-167646412-8
+googleanalytics: G-G981828089
 disqusShortname:
 Paginate: 3
 markup:
