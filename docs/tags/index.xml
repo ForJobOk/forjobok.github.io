@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on KENTO-Portfolio</title>
-    <link>https://forjobok.github.io/KENTO-Portfolio/tags/</link>
+    <link>https://forjobok.github.io/tags/</link>
     <description>Recent content in Tags on KENTO-Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>jp</language><atom:link href="https://forjobok.github.io/KENTO-Portfolio/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>jp</language><atom:link href="https://forjobok.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

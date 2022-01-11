@@ -1,6 +1,6 @@
 publishDir: "docs"
 canonifyurls: true
-baseURL: "https://forjobok.github.io/KENTO-Portfolio/"
+baseURL: "https://forjobok.github.io/"
 languageCode: "jp"
 title: "KENTO-Portfolio"
 theme: "./.."
