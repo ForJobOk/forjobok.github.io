@@ -7,6 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language><atom:link href="https://forjobok.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>1week gamejam</title>
+      <link>https://forjobok.github.io/project/unity1week/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://forjobok.github.io/project/unity1week/</guid>
+      <description>I have participated the 1week gamejam called unity1week.
+This event is a good opportunity to learn new skills.</description>
+    </item>
+    
+    <item>
       <title>Shader article on Zenn</title>
       <link>https://forjobok.github.io/project/zenn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
