@@ -38,3 +38,15 @@ It works on Android, ios, and Nreal Light.
 This work won the second prize.  
 [![younobi](/images/younobi.png)](https://youtu.be/8BB_aQsxtuE)
 
+---
+
+## PLATEAU Business Challenge
+The event is idea hackathon using city data called PLATEAU.  
+All of attendances made a speech on their idea and voted one of idea they had thought best one. Luckily, my idea was selected and  member that voted my idea teamed up.  
+
+We met for the first time at the event.Even though we did not known each other, helped each other and brushed up our idea.  
+
+After brushing up, our idea was so mush better than when I had considered it at first time. Our presentation was perfect.  
+
+Finally, our team and idea were commended.  
+[![PBC](/images/PBC.png)](https://www.slideshare.net/ssuserb5ac78/ar-249505224)
