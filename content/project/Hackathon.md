@@ -50,3 +50,15 @@ After brushing up, our idea was so mush better than when I had considered it at 
 
 Finally, our team and idea were commended.  
 [![PBC](/images/PBC.png)](https://www.slideshare.net/ssuserb5ac78/ar-249505224)
+
+
+---
+
+## PLATEAU Hack Challenge
+Our team brushed up our idea that we came up with in Business Challenge.  
+
+We developed new AR system. It is able to move avatar at realtime via VR.
+Additionally,it has powerful occulusion function using by PLATEAU.  
+
+This work won the second prize.  
+[![PBC](/images/PBC.png)](https://twitter.com/okprogramming/status/1416701844068257794?s=20)
