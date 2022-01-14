@@ -21,6 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="726beb64-53b4-4f40-a280-cd9f5c969d01" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Hugo.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Hugo.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/_default/baseof.html" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/_default/baseof.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layouts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +37,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/config.yaml" />
+        <option value="$PROJECT_DIR$/layouts/index.html" />
+        <option value="$PROJECT_DIR$/layouts/_default/baseof.html" />
       </list>
     </option>
   </component>
@@ -61,6 +66,7 @@
       <workItem from="1641801332297" duration="15119000" />
       <workItem from="1641837227838" duration="1897000" />
       <workItem from="1641870686784" duration="1202000" />
+      <workItem from="1642169403618" duration="1481000" />
     </task>
     <servers />
   </component>
