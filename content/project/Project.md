@@ -34,9 +34,8 @@ This is an application made with Magic Leap that is able to draw in real space.
 You can draw 3D paint by hands in VR space with your friends.  
 Additionally, you can connect to player that exists same LAN.  
 In other words, you can play with your friends.  
-All of actions in this app are able to doing with hands.  
 
-[![MP](/images/MP.png)](https://world.magicleap.com/ja-jp/details/com.upft.magicalpencil)
+[![HandBrush](/images/HandBrush.png)](https://world.magicleap.com/ja-jp/details/com.upft.magicalpencil)
 
 
 
