@@ -35,7 +35,7 @@ You can draw 3D paint by hands in VR space with your friends.
 Additionally, you can connect to player that exists same LAN.  
 In other words, you can play with your friends.  
 
-[![HandBrush](/images/HandBrush.png)](https://world.magicleap.com/ja-jp/details/com.upft.magicalpencil)
+[![HandBrush](/images/HandBrush.png)](https://sidequestvr.com/app/2215/hand-brush-with-your-friend)
 
 
 
