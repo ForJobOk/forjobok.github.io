@@ -1,7 +1,7 @@
 ---
 title: "Presentation"
 draft: false
-img: /images/Presentation.jpeg
+img: /images/Presentation.jpg
 
 ---
 
