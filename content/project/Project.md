@@ -46,5 +46,14 @@ I develop base system of STYLY as XR engineer.
 
 [![STYLY_Banner](/images/STYLY_Banner.jpg)](https://styly.cc/)
 
+---
+
+## Immersal with Nreal
+
+I developed an AR application as side business.  
+Wearing AR glass called Nreal and walking over 200m.
+
+[![Sora](/images/Sora.jpg)](https://twitter.com/kento_xr/status/1465698263667904520?s=20&t=aCNeQbTbBeIj_ww8yddcpQ)
+
 
 
