@@ -55,5 +55,12 @@ Wearing AR glass called Nreal and walking over 200m.
 
 [![Sora](/images/Sora.jpg)](https://twitter.com/kento_xr/status/1465698263667904520?s=20&t=aCNeQbTbBeIj_ww8yddcpQ)
 
+---
+
+## Graphics Academy by Cyber Agent
+I participated the Graphic Academy and learned graphics mainly about shader.
+
+[![GA](/images/GA.jpg)](https://youtu.be/97e-LM-oNf4)
+
 
 
