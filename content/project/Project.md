@@ -50,7 +50,7 @@ I develop base system of STYLY as XR engineer.
 
 ## Immersal with Nreal
 
-I developed an AR application as side business.  
+I developed an AR application as a side business.  
 Wearing AR glass called Nreal and walking over 200m.
 
 [![Sora](/images/Sora.jpg)](https://twitter.com/kento_xr/status/1465698263667904520?s=20&t=aCNeQbTbBeIj_ww8yddcpQ)
@@ -66,7 +66,7 @@ I participated the Graphic Academy and learned graphics mainly about shader.
 
 ## COCOAR
 COCOAR is a platform to publish original AR contents.
-As side business, I created AR contents that works on COCOAR.
+As a side business, I created AR contents that works on COCOAR.
 
 [![COCOAR1](/images/COCOAR1.jpg)](https://aro.coco-ar.com/version/cocoar2/install_share.html?YXJvX2lkPU8yMjA1MTAwODg3NDImZW52PWphJmN1c3RvbT0w)
 
@@ -75,5 +75,5 @@ As side business, I created AR contents that works on COCOAR.
 ---
 
 ## Zoa
-As side business, I joined the team that created the NFT metavers called Zoa.
+As a side business, I joined the team that created the NFT metaverse called Zoa.
 [![Zoa](/images/Zoa.jpg)](https://www.hello.zoa.space/)
