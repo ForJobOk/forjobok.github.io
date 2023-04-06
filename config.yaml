@@ -60,11 +60,18 @@ params:
   # Experience
   disable_experience: false
   experience:
+    - company: "Freelance"
+      id: "Freelance"
+      role: "XR/Metaverse engineer"
+      startdate: Apr 2023
+      enddate: present
+      featuredpoints:
+        - point: Independent as a freelance XR/metaverse engineer.
     - company: "Psychic VR Lab"
       id: "PsychicVRLab"
       role: "XR engineer"
       startdate: Oct 2021
-      enddate: present
+      enddate: Mar 2023
       featuredpoints:
         - point: Work as Unity engineer and develop XR platform.
     - company: "Up-frontier"
