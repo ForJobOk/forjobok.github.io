@@ -39,12 +39,12 @@ params:
   
   # About
   disable_about: false
-  descripe_l1_person: "Joined a sales company as a new graduate.
+  descripe_l1_person: "I joined a sales company as a new graduate.
                        It all started with a longing for technology and I changed jobs. I was lucky enough to become a VR engineer.
                        I was engaged in creating VR packages for safety education as a programmer.
-                       After that,I turned into an XR engineer to broaden the range of work.
-                       As an R&D engineer, I was involved in the validation of new devices and new functions of XR.
-                       Currently, I am working on the development of STYLY, which is an XR platform."
+                       After that, I turned into an XR engineer to broaden the range of work. As an R&D engineer, I was involved in the validation of new devices and new functions of XR.
+                       Next, I worked on the development of STYLY, which is an XR platform.
+                       Currently, I am a freelance engineer of XR and metaverse."
   descripe_l2_person: "I have been acting with the main business lines of AR, VR, and a mobile application productions.
                        If you have some opinion or work to request,please feel free to contact me by e-mail."
   skills:
