@@ -8,10 +8,10 @@
     <language>jp</language><atom:link href="https://forjobok.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Projects I have worked on</title>
-      <link>https://forjobok.github.io/project/project/</link>
+      <link>https://forjobok.github.io/works/project/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://forjobok.github.io/project/project/</guid>
+      <guid>https://forjobok.github.io/works/project/</guid>
       <description>Illumination Diving Supported for enhancing AR content with GPU instancing.
 
  Immersive Battle Helped with a mobile application.
@@ -26,10 +26,10 @@
     
     <item>
       <title>Hackathon &amp; Contest</title>
-      <link>https://forjobok.github.io/project/hackathon_contest/</link>
+      <link>https://forjobok.github.io/works/hackathon_contest/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://forjobok.github.io/project/hackathon_contest/</guid>
+      <guid>https://forjobok.github.io/works/hackathon_contest/</guid>
       <description>I often participate hackathon and contest.
 I like the new technology, especially XR and Unity.
 And when I participate, I try to use the new technology.
@@ -42,20 +42,20 @@ The key feature of this hackathon is GeoSpatialAPI.</description>
     
     <item>
       <title>1week gamejam</title>
-      <link>https://forjobok.github.io/project/unity1week/</link>
+      <link>https://forjobok.github.io/works/unity1week/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://forjobok.github.io/project/unity1week/</guid>
+      <guid>https://forjobok.github.io/works/unity1week/</guid>
       <description>I have participated the 1week gamejam called unity1week.
 This event is a good opportunity to learn new skills.</description>
     </item>
     
     <item>
       <title>Presentation</title>
-      <link>https://forjobok.github.io/project/presentation/</link>
+      <link>https://forjobok.github.io/works/presentation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://forjobok.github.io/project/presentation/</guid>
+      <guid>https://forjobok.github.io/works/presentation/</guid>
       <description>I often try to give a presentation when I acquire new skills or new challenge.
  CA.Unity #5 I gave a presentation about the project architecture of STYLY.
 
@@ -69,10 +69,10 @@ And I gave a presentation in VR space called XRCLOUD.</description>
     
     <item>
       <title>Technical article on Qiita</title>
-      <link>https://forjobok.github.io/project/qiita/</link>
+      <link>https://forjobok.github.io/works/qiita/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://forjobok.github.io/project/qiita/</guid>
+      <guid>https://forjobok.github.io/works/qiita/</guid>
       <description>I won&amp;rsquo;t hesitate to publish the article. I believe that I&amp;rsquo;m sure it will be useful to someone.
 Another reason is that I want to keep a record of my growth.
 I am not a special person, and my growth will encourage others to work towards their goals.</description>
@@ -80,20 +80,20 @@ I am not a special person, and my growth will encourage others to work towards t
     
     <item>
       <title>Shader article on Zenn</title>
-      <link>https://forjobok.github.io/project/zenn/</link>
+      <link>https://forjobok.github.io/works/zenn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://forjobok.github.io/project/zenn/</guid>
+      <guid>https://forjobok.github.io/works/zenn/</guid>
       <description>I write down Shader I learn.
 A goal is 100 articles.</description>
     </item>
     
     <item>
       <title>The minimum tips in English</title>
-      <link>https://forjobok.github.io/project/devcommunity/</link>
+      <link>https://forjobok.github.io/works/devcommunity/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://forjobok.github.io/project/devcommunity/</guid>
+      <guid>https://forjobok.github.io/works/devcommunity/</guid>
       <description>I write down the minimum tips in English.</description>
     </item>
     
