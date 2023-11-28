@@ -2,6 +2,7 @@
 title: "Shader article on Zenn"
 draft: false
 img: /images/Zenn.jpg
+weight: 6
 
 ---
 

@@ -7,12 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language><atom:link href="https://forjobok.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>The minimum tips in English</title>
-      <link>https://forjobok.github.io/project/devcommunity/</link>
+      <title>Projects I have worked on</title>
+      <link>https://forjobok.github.io/project/project/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://forjobok.github.io/project/devcommunity/</guid>
-      <description>I write down the minimum tips in English.</description>
+      <guid>https://forjobok.github.io/project/project/</guid>
+      <description>Illumination Diving Supported for enhancing AR content with GPU instancing.
+
+ Immersive Battle Helped with a mobile application.
+
+ NEUU AR I created a dedicated AR app completely from scratch.
+
+ COCOAR COCOAR is a platform to publish original AR contents. As a side business, I created AR contents that works on COCOAR.
+
+
+ Graphics Academy by Cyber Agent I participated the Graphic Academy and learned graphics mainly about shader.</description>
     </item>
     
     <item>
@@ -59,21 +68,14 @@ And I gave a presentation in VR space called XRCLOUD.</description>
     </item>
     
     <item>
-      <title>Projects I have worked on</title>
-      <link>https://forjobok.github.io/project/project/</link>
+      <title>Technical article on Qiita</title>
+      <link>https://forjobok.github.io/project/qiita/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://forjobok.github.io/project/project/</guid>
-      <description>Illumination Diving Supported for enhancing AR content with GPU instancing.
-
- Immersive Battle Helped with a mobile application.
-
- NEUU AR I created a dedicated AR app completely from scratch.
-
- COCOAR COCOAR is a platform to publish original AR contents. As a side business, I created AR contents that works on COCOAR.
-
-
- Graphics Academy by Cyber Agent I participated the Graphic Academy and learned graphics mainly about shader.</description>
+      <guid>https://forjobok.github.io/project/qiita/</guid>
+      <description>I won&amp;rsquo;t hesitate to publish the article. I believe that I&amp;rsquo;m sure it will be useful to someone.
+Another reason is that I want to keep a record of my growth.
+I am not a special person, and my growth will encourage others to work towards their goals.</description>
     </item>
     
     <item>
@@ -87,14 +89,12 @@ A goal is 100 articles.</description>
     </item>
     
     <item>
-      <title>Technical article on Qiita</title>
-      <link>https://forjobok.github.io/project/qiita/</link>
+      <title>The minimum tips in English</title>
+      <link>https://forjobok.github.io/project/devcommunity/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://forjobok.github.io/project/qiita/</guid>
-      <description>I won&amp;rsquo;t hesitate to publish the article. I believe that I&amp;rsquo;m sure it will be useful to someone.
-Another reason is that I want to keep a record of my growth.
-I am not a special person, and my growth will encourage others to work towards their goals.</description>
+      <guid>https://forjobok.github.io/project/devcommunity/</guid>
+      <description>I write down the minimum tips in English.</description>
     </item>
     
   </channel>

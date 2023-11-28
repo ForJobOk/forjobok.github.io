@@ -2,6 +2,7 @@
 title: "Technical article on Qiita"
 draft: false
 img: /images/Qiita.png
+weight: 5
 
 ---
 
