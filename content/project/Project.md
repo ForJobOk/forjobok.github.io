@@ -5,13 +5,32 @@ img: /images/Project.jpg
 
 ---
 
+## Illumination Diving
+
+Supported for enhancing AR content with GPU instancing.
+
+[![IlluminationDiving](/images/IlluminationDiving.png)](https://www.youtube.com/watch?v=HY-PqkNSnrw)
+
+---
+
+## Immersive Battle
+
+Helped with a mobile application.
+
+[![ImmersiveBattle](/images/ImmersiveBattle.png)](https://www.youtube.com/watch?v=D1nboyoqYrM)
+
+---
+
 ## NEUU AR
+
 I created a dedicated AR app completely from scratch.
+
 [![NEUU_AR](/images/NEUU_AR.png)](https://neuu.jp/posts_n/230827_news)
 
 ---
 
 ## COCOAR
+
 COCOAR is a platform to publish original AR contents.
 As a side business, I created AR contents that works on COCOAR.
 
@@ -22,6 +41,7 @@ As a side business, I created AR contents that works on COCOAR.
 ---
 
 ## Graphics Academy by Cyber Agent
+
 I participated the Graphic Academy and learned graphics mainly about shader.
 
 [![GA](/images/GA.jpg)](https://youtu.be/97e-LM-oNf4)
@@ -61,3 +81,11 @@ In other words, you can play with your friends.
 This is an application made with Magic Leap that is able to draw in real space.
 
 [![MP](/images/MP.png)](https://world.magicleap.com/ja-jp/details/com.upft.magicalpencil)
+
+---
+
+## VR Safety Education
+
+I joined as VR enginner in the project to deliver VR safety education contents.  
+
+[![VRSafetyEducation](/images/VRSafetyEducation.png)](https://www.ntt-tx.co.jp/products/vr-anzen/)
