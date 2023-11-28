@@ -2,6 +2,7 @@
 title: "Hackathon & Contest"
 draft: false
 img: /images/Hackathon.png
+weight: 2
 
 ---
 

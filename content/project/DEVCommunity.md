@@ -2,6 +2,7 @@
 title: "The minimum tips in English"
 draft: false
 img: /images/DEVCommunity.png
+weight: 1
 
 ---
 
