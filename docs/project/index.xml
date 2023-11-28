@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>KENTO-Portfolio</title>
-    <link>https://forjobok.github.io/</link>
-    <description>Recent content on KENTO-Portfolio</description>
+    <title>Projects on KENTO-Portfolio</title>
+    <link>https://forjobok.github.io/project/</link>
+    <description>Recent content in Projects on KENTO-Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>jp</language><atom:link href="https://forjobok.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>jp</language><atom:link href="https://forjobok.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Projects I have worked on</title>
       <link>https://forjobok.github.io/project/project/</link>
