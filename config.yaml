@@ -96,21 +96,8 @@ params:
       featuredpoints:
         - point: Vending machine management and sales.
 
-  # Education
-  disable_education: true
-
-  # Achievements
-  disable_achievements: true
-
   # Contact
-  disable_contact: true
-  contact_content: My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
   email: "kentou1506@gmail.com"
 
-  # Footer
-  socialiconfooter: false
-  recentposts: false
-
-  # Blog
-  showdescription: false
-  tweet: true
+  # works
+  disable_works: false

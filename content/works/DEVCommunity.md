@@ -1,5 +1,5 @@
 ---
-title: "The minimum tips in English"
+title: "The minimum tips"
 draft: false
 img: /images/DEVCommunity.png
 weight: 7

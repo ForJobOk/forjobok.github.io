@@ -29,14 +29,6 @@
             <span class="px-1"></span>
             {{ end }}
 
-            {{ if .Site.Params.gitlab }}
-            <a href="{{ .Site.Params.gitlab }}" target="_blank" class="social-icon">
-              <i class="fab fa-lg fa-gitlab"></i>
-              &#8203;
-            </a>
-            <span class="px-1"></span>
-            {{ end }}
-
             {{ if .Site.Params.twitter }}
             <a href="{{ .Site.Params.twitter }}" target="_blank" class="social-icon">
               <i class="fab fa-lg fa-twitter"></i>
@@ -60,30 +52,7 @@
             </a>
             <span class="px-1"></span>
             {{ end }}
-
-            <!-- customSocialLinks -->
-            {{ range .Site.Params.customSocialLinks }}
-            {{ if .fontAwesomeIconName }}
-            <a href="{{ .url }}" class="social-icon">
-              <i class="fa-lg {{ .fontAwesomeIconName }}"></i>
-              &#8203;
-            </a>
-            {{ else }}
-            <a href="{{ .url }}" class="social-icon">
-              <img class="fab fa-lg" src="{{ .imageURL }}" alt="{{ .name }}" width="4%" />
-              &#8203;
-            </a>
-            {{ end }}
-            <span class="px-1"></span>
-            {{ end }}
           </div>
-        </div>
-
-        <div class="pt-4 btn-intro">
-          <a href="#about" class="btn-know btn btn-outline-info" data-aos="zoom-in" data-aos-offset="50"
-            data-aos-delay="50" data-aos-duration="900" data-aos-once="true">
-            About me
-          </a>
         </div>
 
       </div>

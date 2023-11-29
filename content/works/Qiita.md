@@ -1,5 +1,5 @@
 ---
-title: "Technical article on Qiita"
+title: "Technical article"
 draft: false
 img: /images/Qiita.png
 weight: 5

@@ -1,5 +1,5 @@
 ---
-title: "Projects I have worked on"
+title: "Project"
 draft: false
 img: /images/Project.jpg
 weight: 1

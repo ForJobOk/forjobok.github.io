@@ -1,5 +1,5 @@
 ---
-title: "Shader article on Zenn"
+title: "Shader article"
 draft: false
 img: /images/Zenn.jpg
 weight: 6
