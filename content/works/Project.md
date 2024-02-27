@@ -8,7 +8,7 @@ weight: 1
 
 ## VR / Metaverse Platform
 
-Worked on the development of the Metaverse platform for one year as a VR engineer.
+Worked on the development of the Metaverse platform for one year as a VR engineer.  
 ＊Due to the contract, I can't provide details about this project.
 
 ![VR_MetaversePlatform](/images/VR_MetaversePlatform.png)
@@ -41,7 +41,7 @@ I created a dedicated AR app completely from scratch.
 
 ## COCOAR
 
-COCOAR is a platform to publish original AR contents.
+COCOAR is a platform to publish original AR contents.  
 As a side business, I created AR contents that works on COCOAR.
 
 [![COCOAR1](/images/COCOAR1.jpg)](https://aro.coco-ar.com/version/cocoar2/install_share.html?YXJvX2lkPU8yMjA1MTAwODg3NDImZW52PWphJmN1c3RvbT0w)
