@@ -9,6 +9,7 @@ weight: 1
 ## VR / Metaverse Platform
 
 Worked on the development of the Metaverse platform for one year as a VR engineer.
+＊Due to the contract, I can't provide details about this project.
 
 ![VR_MetaversePlatform](/images/VR_MetaversePlatform.png)
 
