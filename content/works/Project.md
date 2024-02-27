@@ -6,6 +6,14 @@ weight: 1
 
 ---
 
+## VR / Metaverse Platform
+
+Worked on the development of the Metaverse platform for one year as a VR engineer.
+
+![VR_MetaversePlatform](/images/VR_MetaversePlatform.png)
+
+---
+
 ## Illumination Diving
 
 Supported for enhancing AR content with GPU instancing.
