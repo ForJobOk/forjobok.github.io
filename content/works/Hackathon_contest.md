@@ -14,7 +14,7 @@ And when I participate, I try to use the new technology.
 
 ## withAR × Odakyu
 
-A mock application to comuunicate for character with AR.
+A mock application to communicate for character with AR.
 
 [![NuidoriFriends](/images/NuidoriFriends.png)](https://x.com/kento_xr/status/1766724083352494191?s=20)
 
