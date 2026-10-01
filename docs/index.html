@@ -1,618 +1,245 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-	<meta name="generator" content="Hugo 0.91.2" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>尾上 兼透 — XR / AI Engineer</title>
+  <meta name="description" content="XRエンジニア 尾上兼透のポートフォリオ。技術検証から設計・実装・運用まで、少人数のチームで一通りを回してきたXR開発8年の記録。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="尾上 兼透 — XR / AI Engineer">
+  <meta property="og:description" content="XR開発8年。技術検証から設計・実装・運用まで。">
+  <meta property="og:url" content="https://forjobok.github.io/">
+  <meta property="og:image" content="https://forjobok.github.io/images/profile.jpg">
   <meta name="twitter:card" content="summary">
-  <meta property="og:title" content="KENTO-Portfolio">
-  <meta property="og:description" content="Welcome to my portfolio.">
-  <meta property="og:image" content="https://forjobok.github.io/KENTO-Portfolio/images/maro.png">
-</head>
+  <meta name="twitter:site" content="@kento_xr">
+  <link rel="icon" href="images/maro.png">
 
-<head>
-  <title>KENTO-Portfolio</title>
-  <meta name="description" content="Welcome to my portfolio.">
-
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet"><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="icon" href="./images/maro.png" type="image/gif">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G981828089"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-G981828089', { 'anonymize_ip': false });
-}
-</script>
-
-
-<link rel="stylesheet" href="./css/bootstrap.min.css" media="all">
-<link rel="stylesheet" href="./css/all.min.css" media="all">
-<link rel="stylesheet" href="./css/fontawesome.min.css" media="all">
-<link rel="stylesheet" href="./css/v3/darkmode.css" media="all">
-
-<style>
-    html {
-        scrollbar-width: thin;
-        scrollbar-color: #6c757d transparent;
-    }
-
-    ::-webkit-scrollbar {
-        width: 5px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: #6c757d;
-    }
-</style>
-
-
-
-<link rel="stylesheet" href="./css/v3/v3.css" media="all">
-  <link rel="stylesheet" href="./css/v3/loader.css" />
-
-  
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-</head>
-
-<body class="text-dark">
-  
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G981828089"></script>
   <script>
-    AOS.init();
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G981828089');
   </script>
-  <div>
-    <div class="container-fluid home">
-  <div class="pt-5 pb-3 pt-md-0">
-    <div class="row justify-content-center intro" data-aos="fade-down" data-aos-easing="linear"
-      data-aos-duration="1000">
-      <div class="col-md-7 pb-2 name-container">
-        <div class="name" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000"
-          data-aos-once="true">
-          <div style="color: #ffc107;" class="hi-text" data-aos="fade-up" data-aos-offset="50"
-            data-aos-delay="50" data-aos-once="true" data-aos-duration="900">
-            Hi there, I&#39;m
-          </div>
-          <h1 class="text-primary name-text" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50"
-            data-aos-duration="900" data-aos-once="true">
-            KENTO ONOUE
-          </h1>
-          <h5 class="text-muted pro-text" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50"
-            data-aos-duration="900" data-aos-once="true">
-            XR engineer
-          </h5>
-        </div>
-        <div class="row social pt-4" data-aos="fade-up" data-aos-offset="50" data-aos-delay="50" data-aos-duration="900"
-          data-aos-once="true">
-          <div class="col-md-12">
-            
-            <a href="https://github.com/ForJobOk" target="_blank" class="social-icon">
-              <i class="fab fa-lg fa-github"></i>
-              &#8203;
-            </a>
-            <span class="px-1"></span>
-            
+</head>
+<body>
+  <main>
+    <header class="top">
+      <h1>尾上 兼透</h1>
+      <p class="role">XR / AI Engineer</p>
+      <nav aria-label="ページ内リンク">
+        <a href="#about">プロフィール</a>
+        <a href="#principles">考え方</a>
+        <a href="#work">実績</a>
+        <a href="#capabilities">できること</a>
+        <a href="#experience">経歴</a>
+        <a href="#output">発信</a>
+      </nav>
+    </header>
 
-            
-            <a href="https://twitter.com/kento_xr" target="_blank" class="social-icon">
-              <i class="fab fa-lg fa-twitter"></i>
-              &#8203;
-            </a>
-            <span class="px-1"></span>
-            
+    <section id="about">
+      <h2>プロフィール</h2>
+      <p>VR・AR・MRの開発に携わって8年。新しいデバイスや機能をいち早く検証し、設計・実装し、現場で使われ続けるところまで持っていくことを仕事にしています。</p>
+      <p>キャリアの始まりは飲料メーカーの営業職です。技術への憧れからVRエンジニアに転身しました。その後、VR安全教育の受託開発、XRのR&amp;D、XRプラットフォーム<a href="https://styly.cc/" target="_blank" rel="noopener">STYLY</a>の開発を経て、2023年に独立。2024年には<a href="https://ud-inc.co.jp/" target="_blank" rel="noopener">株式会社UD</a>を設立し、ARグラスのコンテンツや新規事業の開発をリードしています。</p>
+      <p>担ってきたのは、技術検証、設計、実装、チームリード、プロジェクト推進。少人数のチームで開発することが多く、役割を限定せずにその時プロジェクトに足りないものを自分で埋めてきました。企画から運用までを一通り自分の手で回せることが強みです。</p>
+    </section>
 
-            
-            <a href="https://www.linkedin.com/in/onouekento/" target="_blank" class="social-icon">
-              <i class="fab fa-lg fa-linkedin"></i>
-              &#8203;
-            </a>
-            <span class="px-1"></span>
-            
+    <section id="principles">
+      <h2>考え方</h2>
+      <p class="note">何を作ったか以上に、どう考えて作るか。仕事で意識している6つのことと、その根拠です。</p>
 
-            
-            <a href="https://www.facebook.com/onoue.kento" target="_blank" class="social-icon">
-              <i class="fab fa-lg fa-facebook"></i>
-              &#8203;
-            </a>
-            <span class="px-1"></span>
-            
-          </div>
-        </div>
+      <article>
+        <h3>まず触って、判断材料にする。</h3>
+        <p>新しいデバイスやSDKは、資料を読むより先に手を動かします。ただし目的は動かすことではなく、「どの条件なら使えるか・何がリスクか」を言語化して、チームや顧客が決められる状態にすることです。</p>
+        <p class="sub">アップフロンティアでXRのR&amp;Dを担当し、Immersal・LiDAR・Magic Leap・PLATEAU・VPSなどの検証結果を社外に公開。STYLYでは技術検証チームのテックリードとして、新機能の検証からプロダクトへの組み込みまでを担当。独立後は「こういうものを作りたい」というアイデアだけを受け取ることも多く、実現方法の調査・技術選定から、顧客とのすり合わせ、設計・実装までを自分で組み立てている。</p>
+      </article>
+      <article>
+        <h3>体験から逆算する。</h3>
+        <p>XRは「技術的にできる」と「体験として成立する」の差が大きい分野です。だから最初に、誰が・どこで・どう使えば価値が出るかの仮説とゴールを置き、そこから逆算して進めます。</p>
+        <p>序盤は、その道筋に関係のなさそうな検証には手を広げません。まず最小限のものを作って仮説が有効かを確かめ、結果を見ながら調整していく。この順番が最も効率的だというのが、経験から得た実感です。</p>
+        <p class="sub">VR安全教育では事故事例の調査や顧客取材から企画に参加。医療系ARでは技術コンサルティングとして要件定義から入り、現場の制約を前提に設計。</p>
+      </article>
+      <article>
+        <h3>変化に耐える設計にする。</h3>
+        <p>XRはデバイスもSDKも入れ替わりが激しい。だからプラットフォームの差分は一箇所に閉じ込め、機能追加や移植で壊れない構造を優先します。役割ごとに責務を分け、後から入った人でも読めて直せるコードであることを重視しています。</p>
+        <p class="sub">STYLYでは、VR・AR・モバイル・Webなど多数のプラットフォームに同時対応するプロダクトの機能開発とコードレビューを担当し、その仕組みを CA.Unity で登壇。その経験を活かし、独立後の新規開発でも、設計からリリース、運用・保守まで一気通貫で実施。</p>
+      </article>
+      <article>
+        <h3>知見は言語化して、資産にする。</h3>
+        <p>技術記事を書き続けて身についたのは、理解したことを言語化し、他の人が再現できる形で残す習慣です。今その出力先は、公開記事からチームのドキュメントや、AIエージェントが参照するルール・手順書へと移っています。書いた知見が、人にもAIにも使われ続けることを意識しています。</p>
+        <p class="sub">Qiita 197本・Zenn 95本（シェーダー中心）の技術記事と、CA.Unity などでの登壇。現在はプロジェクトごとにコーディングエージェント向けのルールや自動チェックを整備し、チームの判断基準をAIにも共有している。</p>
+      </article>
+      <article>
+        <h3>AIと組んで、少人数で速く作る。</h3>
+        <p>Claude Code や Codex を日常的に使い、Unity・Webを問わず開発の中心に組み込んでいます。AIと組むことで、得意領域の外にも踏み込んで、動くものを速く形にできるようになりました。AIに任せる領域と人が判断すべき領域を切り分けて、少人数でも速度と品質を両立させることを意識しています。</p>
+        <p class="sub">2025年以降の案件で Claude Code・Codex を活用し、Unity では Editor をエージェントから操作する uloop も導入。最新の案件ではWebの領域にも手を広げ、設計からリリースまで責任者として開発を担当。</p>
+      </article>
+      <article>
+        <h3>技術を、事業に繋げる。</h3>
+        <p>良いデモを作ることと、それが事業になることは別物です。プロトタイプを協業や商談に繋げる、アイデアを続けられる形に育てる。その「次の一歩」まで考えて動きます。</p>
+        <p class="sub">enXross HACKATHON（258名・93チーム）での最優秀賞を機に株式会社東京ドームと協業し、ARグラスの次世代アーケードゲームを開発。上場企業グループ会社の新規事業開発にも技術検証・要件定義から参画。</p>
+      </article>
+    </section>
 
-      </div>
-      <div class="col-md-5 text-center pt-2 pt-md-0 position-relative">
-        
-        <img class="profile rounded shadow-lg" data-aos="zoom-in" data-aos-once="true" data-aos-duration="1000"
-          src="./images/profile.jpg" alt="KENTO ONOUE" class="rounded">
-        
-      </div>
+    <section id="work">
+      <h2>実績</h2>
 
-    </div>
-  </div>
-</div>
+      <article>
+        <h3><a href="https://emonoa.com/" target="_blank" rel="noopener">少人数×AIで、Webサービスを一から立ち上げる</a></h3>
+        <p class="meta">2026 – ／ 株式会社UD ／ 開発責任者</p>
+        <p>Live2D風のアバターをWeb上で作り、配信ツールに取り込めるサービス「emonoa」（ベータ版公開中）。Unityの外の領域だったが、仕様・体験・品質の判断に集中し、実装の多くをAIと分担することで、少人数でもサービスとして形にしている。</p>
+        <p class="tech">TypeScript, React, PixiJS, Firebase, Claude Code</p>
+      </article>
+      <article>
+        <h3><a href="https://www.thoracentes.co.jp/2026/04/01/265/" target="_blank" rel="noopener">手術を支えるARを、要件定義から形にする</a></h3>
+        <p class="meta">2024 – 2026 ／ フリーランス ／ 技術コンサルティング兼エンジニア</p>
+        <p>CT画像から得た臓器の立体情報をARで実空間に重ね、手術中のガイドとして表示するアプリ。「XRで何ができるか」から話すのではなく、医療現場の手順と制約を理解したうえで、ARが担う範囲を決める。技術的な限界も早い段階で共有しながら、技術検証・要件定義から設計・実装までを担当した。管理医療機器（クラスII）として認証を取得。</p>
+        <p class="tech">Unity, XREAL Air2 Ultra, Meta Quest, R3, UniTask</p>
+      </article>
+      <article>
+        <h3><a href="https://prtimes.jp/main/html/rd/p/000000247.000077656.html" target="_blank" rel="noopener">ハッカソンの一作を、東京ドームとの協業へ</a></h3>
+        <p class="meta">2024 – 2025 ／ 株式会社UD ／ 開発エンジニア</p>
+        <p>国内最大級のXRハッカソン <a href="https://ud-inc.co.jp/products/title_enxross/" target="_blank" rel="noopener">enXross HACKATHON</a> で、258名・93チームの中から最優秀賞を獲得したARグラスのゲーム「ウルトラ調査隊」を、施設で毎日遊ばれるコンテンツへ。イベントで一度動くことと、不特定多数が繰り返し遊べることは別の要件。演出の魅力と、運用に耐える安定性の両立を優先した。</p>
+        <p class="tech">Unity, XREAL, Shader, Shuriken</p>
+      </article>
+      <article>
+        <h3><a href="https://styly.cc/ja/manual/xr-urban-spaces-starter-guide" target="_blank" rel="noopener">都市スケールのARを、クリエイターが使える機能に</a></h3>
+        <p class="meta">2022 – 2023 ／ STYLY ／ リードエンジニア</p>
+        <p>街や屋内に正確にARを置く機能の開発。VPSは選択肢が多く、精度・対応環境・運用コストがそれぞれ違う。技術的に一番優れたものより、クリエイターが迷わず使え、運用し続けられるものを基準に選び、検証から設計・実装・運用・レビューまでをリードした。</p>
+        <p class="tech">Unity, Immersal, Geospatial, AR Foundation, UniTask</p>
+      </article>
+      <article>
+        <h3><a href="https://www.ntt-tx.co.jp/products/vr-anzen/" target="_blank" rel="noopener">事故事例の調査から始める、VR安全教育</a></h3>
+        <p class="meta">2018 – 2019 ／ ナノ・メディア ／ 開発エンジニア</p>
+        <p>危険を「体感」して学ぶVR教材。怖い映像を作ることではなく、受講者の行動が変わることが目的。実際の事故の状況を正しく再現するため、調査・取材・企画から開発・運用まで一貫して担当し、スタンドアロン機への移植で導入のハードルも下げた。</p>
+        <p class="tech">Unity, HTC VIVE, Mirage Solo, Oculus Quest</p>
+      </article>
 
-    <div id="about" class="about-backdark about-back">
-  <section class="pt-5">
-    <div class="container-fluid">
-      <div class="text-dark text-center h3">About Me</div>
-      <div class="row justify-content-center about">
-        <div class="col-md-6 about-content">
-          <div data-aos="zoom-in-up" data-aos-offset="50" data-aos-delay="50" data-aos-once="true"
-            data-aos-duration="900">
-            <div class="px-2">
-              I joined a sales company as a new graduate. It all started with a longing for technology and I changed jobs. I was lucky enough to become a VR engineer. I was engaged in creating VR packages for safety education as a programmer. After that, I turned into an XR engineer to broaden the range of work. As an R&amp;D engineer, I was involved in the validation of new devices and new functions of XR. Next, I worked on the development of STYLY, which is an XR platform. Currently, I am a freelance engineer of XR and metaverse.
-              <br />
-              <br />
-              I have been acting with the main business lines of AR, VR, and a mobile application productions. Please feel free to contact me by e-mail.
-            </div>
-            
-            <div class="py-3 pl-2">
-              <a href="mailto:kentou1506@gmail.com" target="_blank"
-                class="contact-btn btn text-muted">
-                Get in Touch
-              </a>
-            </div>
-            
-          </div>
-        </div>
-        <div class="col-md-5 about-skill">
-          <div data-aos="zoom-in-down" data-aos-offset="50" data-aos-delay="50" data-aos-once="true"
-            data-aos-duration="1000">
-            <div class="text-secondary text-center h4">Skills</div>
-            
-            <div>
-              <div>Unity</div>
-              <div class="progress mb-4">
-                <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuemin="0"
-                  aria-valuemax="100"></div>
-              </div>
-            </div>
-            
-            <div>
-              <div>C#</div>
-              <div class="progress mb-4">
-                <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuemin="0"
-                  aria-valuemax="100"></div>
-              </div>
-            </div>
-            
-            <div>
-              <div>VR</div>
-              <div class="progress mb-4">
-                <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuemin="0"
-                  aria-valuemax="100"></div>
-              </div>
-            </div>
-            
-            <div>
-              <div>AR</div>
-              <div class="progress mb-4">
-                <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuemin="0"
-                  aria-valuemax="100"></div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
+      <details>
+        <summary>その他のプロジェクト（31件）</summary>
+        <ul class="list">
+          <li><span>2026</span>産業向けARガイドアプリ<small>独自AIモデル連携 / 設計・実装</small></li>
+          <li><span>2026</span>VRカジュアルゲーム<small>マルチプレイ / 設計・実装</small></li>
+          <li><span>2025</span>上場企業グループの新規事業開発<small>Web AR/VR・デジタルツイン</small></li>
+          <li><span>2025</span>VR野球トレーニングアプリ<small>機能追加・リファクタリング</small></li>
+          <li><span>2025</span>ARグラス × AI のデモアプリ<small>技術検証・機能開発</small></li>
+          <li><span>2025</span>大阪・関西万博 ARグラス遊戯アプリ<small>技術検証</small></li>
+          <li><span>2024</span><a href="https://ud-inc.co.jp/products/title_ubox_fireworks/" target="_blank" rel="noopener">ARグラスの花火コンテンツ</a><small>自社 / PM兼エンジニア</small></li>
+          <li><span>2024</span><a href="https://ud-inc.co.jp/products/title_ubox_aquarium/" target="_blank" rel="noopener">ARグラスのアクアリウムコンテンツ</a><small>自社 / PM兼エンジニア</small></li>
+          <li><span>2024</span>医療系VR（リハビリ・治療時の痛みを軽減）<small>技術検証・設計・実装</small></li>
+          <li><span>2024</span>MRとVRで意思疎通できるアプリ<small>設計・実装</small></li>
+          <li><span>2024</span>UGC型XRプラットフォームの機能開発<small>設計・実装</small></li>
+          <li><span>2023</span>新規VRSNSの開発<small>設計・実装・レビュー</small></li>
+          <li><span>2023</span><a href="https://www.youtube.com/watch?v=HY-PqkNSnrw" target="_blank" rel="noopener">Illumination Diving</a><small>AR演出の技術協力</small></li>
+          <li><span>2023</span><a href="https://www.ktv.jp/xr/produce/10/" target="_blank" rel="noopener">イマーシブバトル</a><small>NFC連動のゲーム基盤</small></li>
+          <li><span>2023</span><a href="https://neuu.jp/posts_n/230827_news" target="_blank" rel="noopener">NEUU 常設ARコンテンツ</a><small>企画〜実装</small></li>
+          <li><span>2023</span>3DビューワーアプリのAssetBundle対応<small>設計・実装</small></li>
+          <li><span>2023</span><a href="https://qiita.com/OKsaiyowa/items/cf63e59bc659d3b6cdd8" target="_blank" rel="noopener">アバター作成機能の開発</a><small>技術検証・実装</small></li>
+          <li><span>2022</span><a href="https://styly.inc/ja/news/sony-elf-sr2/" target="_blank" rel="noopener">裸眼立体視ディスプレイ対応版 STYLY</a><small>リードエンジニア</small></li>
+          <li><span>2022</span>NFT対応メタバース<small>設計・実装・レビュー</small></li>
+          <li><span>2022</span><a href="https://aro.coco-ar.com/version/cocoar2/install.html?YXJvX2lkPU8yMjA1MTAwODg3NDImZW52PWph" target="_blank" rel="noopener">COCOAR コンテンツ</a><small>エフェクト・シェーダー</small></li>
+          <li><span>2021</span>STYLY ボリュメトリックビデオ対応<small>設計・実装・レビュー</small></li>
+          <li><span>2021</span><a href="https://yuuu.jp/service/soraaquarium/" target="_blank" rel="noopener">ソラ水族館</a><small>200mの商店街AR</small></li>
+          <li><span>2020</span><a href="https://gaprot.jp/2021/06/15/ar-vps/" target="_blank" rel="noopener">XR R&amp;D（新規デバイス・機能の検証）</a><small>検証記事を多数公開</small></li>
+          <li><span>2020</span><a href="https://cfa.upft.jp/" target="_blank" rel="noopener">ARコンテンツ制作ツール CFA</a><small>機能追加・レビュー</small></li>
+          <li><span>2020</span><a href="https://sidequestvr.com/app/2215/hand-brush-with-your-friend" target="_blank" rel="noopener">Hand Brush “with your friend”</a><small>マルチプレイVR</small></li>
+          <li><span>2020</span><a href="https://up-frontier.jp/works/upft-magical-pencil" target="_blank" rel="noopener">Magical Pencil</a><small>Magic Leap アプリ</small></li>
+          <li><span>2019</span>某通信建設会社向け VR危険体感（屋外・屋内）<small>調査・企画・開発・運用</small></li>
+          <li><span>2019</span>某ハウスメーカー向け 間取り変更VR<small>企画・開発</small></li>
+          <li><span>2019</span>某鉄道会社向け モデルルームVR<small>企画・開発</small></li>
+          <li><span>2019</span>某消防局向け 消火・突入訓練VR<small>企画・開発</small></li>
+          <li><span>2019</span>某大手通信会社向け VR危険体感<small>企画・開発・移植</small></li>
+        </ul>
+        <p class="note">※ 受託案件は守秘義務の範囲で概要のみ掲載しています。</p>
+      </details>
+    </section>
+
+    <section id="capabilities">
+      <h2>できること</h2>
+      <article>
+        <h3>XR / 空間コンピューティング</h3>
+        <p>ARグラス・VR・MRデバイスでの開発と、VPSによる都市/屋内の位置合わせ。</p>
+        <p class="tech">XREAL, MiRZA, Quest, Pico, VIVE, HoloLens 2, Magic Leap, ELF-SR2, Immersal, MultiSet, Geospatial</p>
+      </article>
+      <article>
+        <h3>Unity アーキテクチャ</h3>
+        <p>マルチプラットフォームで長く運用される前提の設計、SDK開発、アセット配信、レビュー。</p>
+        <p class="tech">C#, VContainer, MessagePipe, R3 / UniRx, UniTask, Addressables</p>
+      </article>
+      <article>
+        <h3>グラフィックス</h3>
+        <p>ARグラスでも破綻しない演出と負荷対策、新しい3D表現への対応。</p>
+        <p class="tech">Shader, Shuriken, GPU Instancing, Volumetric Video, 3D Gaussian Splatting</p>
+      </article>
+      <article>
+        <h3>マルチプレイ・デバイス連携</h3>
+        <p>VRとARを跨ぐ同期、物理デバイスをトリガーにした体験。</p>
+        <p class="tech">Photon PUN / Fusion, Mirror, Agora, BLE, NFC</p>
+      </article>
+      <article>
+        <h3>Web（3D・XR）</h3>
+        <p>Unityを軸に、Webブラウザ上での3D・XR開発にも対応。</p>
+        <p class="tech">Three.js, PlayCanvas, 3D Gaussian Splatting, React, TypeScript, Firebase</p>
+      </article>
+      <article>
+        <h3>一気通貫の開発</h3>
+        <p>技術検証、要件定義、設計、コードレビュー、PM、技術コンサルティング、開発責任者。</p>
+      </article>
+    </section>
 
     <section id="experience">
-  <div class="container-fluid pt-5">
-    <div class="text-dark text-center h3">Experience</div>
+      <h2>経歴</h2>
+      <ul class="list list--career">
+        <li><span>2024 – 現在</span><div><a href="https://ud-inc.co.jp/" target="_blank" rel="noopener">株式会社UD</a>　代表取締役<small>XR・メタバース領域の法人を設立。ARグラスの自社コンテンツ、Webサービスの開発をリード。</small></div></li>
+        <li><span>2023 – 現在</span><div>フリーランス　XR / メタバースエンジニア<small>医療系AR/VR、VRSNS、UGCプラットフォーム、大阪・関西万博のARアプリ、上場企業グループの新規事業など。技術検証から設計・実装まで。</small></div></li>
+        <li><span>2021 – 2023</span><div><a href="https://styly.inc/" target="_blank" rel="noopener">株式会社STYLY</a>　XRエンジニア<small>XRコンテンツ配信プラットフォーム「STYLY」の開発。技術検証チームのテックリードとして、新機能の検証から組み込みまで。</small></div></li>
+        <li><span>2020 – 2021</span><div><a href="https://up-frontier.jp/" target="_blank" rel="noopener">アップフロンティア株式会社</a>　R&amp;Dエンジニア<small>XR分野のR&amp;D。プロトタイプの企画・設計・実装を一人で担い、チーム開発では実装を担当。</small></div></li>
+        <li><span>2018 – 2019</span><div>株式会社ナノ・メディア　VRエンジニア<small>VR安全教育コンテンツの開発。顧客との打ち合わせや取材、企画から開発・運用まで。</small></div></li>
+        <li><span>2017 – 2018</span><div>アサヒ飲料販売株式会社　営業<small>自動販売機の設置営業と管理。相手の課題を聞いて提案する、という仕事の原点。</small></div></li>
+      </ul>
+      <p class="note">資格：Virtual Reality Specialist / Senior Virtual Reality Specialist</p>
+    </section>
 
-    <div class="row justify-content-center py-md-5">
-      <div class="d-md-none d-lg-none d-sm-block">
-        <ol class="ex-ol pl-5 pr-3">
-          
-          <li class="ex-ol-li" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="600" data-aos-once="true">
-            <h4 class="text-muted">
-              <span class="text-primary">Freelance</span> - XR/Metaverse engineer
-            </h4>
-            <div>
-              <small>Apr 2023</small>
-              -
-              <small>present</small>
-            </div>
-            <ul class="py-2 ex-ol-ul">
-              
-              <li class="ex-ol-item">Independent as a freelance XR/metaverse engineer.</li>
-              
-            </ul>
-          </li>
-          
-          <li class="ex-ol-li" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="600" data-aos-once="true">
-            <h4 class="text-muted">
-              <span class="text-primary">Psychic VR Lab</span> - XR engineer
-            </h4>
-            <div>
-              <small>Oct 2021</small>
-              -
-              <small>Mar 2023</small>
-            </div>
-            <ul class="py-2 ex-ol-ul">
-              
-              <li class="ex-ol-item">Work as Unity engineer and develop XR platform.</li>
-              
-            </ul>
-          </li>
-          
-          <li class="ex-ol-li" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="600" data-aos-once="true">
-            <h4 class="text-muted">
-              <span class="text-primary">Up-frontier</span> - XR engineer
-            </h4>
-            <div>
-              <small>Feb 2020</small>
-              -
-              <small>Sep 2021</small>
-            </div>
-            <ul class="py-2 ex-ol-ul">
-              
-              <li class="ex-ol-item">Research and development about XR.</li>
-              
-            </ul>
-          </li>
-          
-          <li class="ex-ol-li" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="600" data-aos-once="true">
-            <h4 class="text-muted">
-              <span class="text-primary">NANO Media</span> - VR engineer
-            </h4>
-            <div>
-              <small>Oct 2018</small>
-              -
-              <small>Jan 2020</small>
-            </div>
-            <ul class="py-2 ex-ol-ul">
-              
-              <li class="ex-ol-item">Develop VR application for safety education.</li>
-              
-            </ul>
-          </li>
-          
-          <li class="ex-ol-li" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="600" data-aos-once="true">
-            <h4 class="text-muted">
-              <span class="text-primary">Asahi Soft Drink Sales</span> - Sales
-            </h4>
-            <div>
-              <small>Apr 2017</small>
-              -
-              <small>Sep 2018</small>
-            </div>
-            <ul class="py-2 ex-ol-ul">
-              
-              <li class="ex-ol-item">Vending machine management and sales.</li>
-              
-            </ul>
-          </li>
-          
-        </ol>
-      </div>
+    <section id="output">
+      <h2>発信</h2>
+      <p>これまでに <a href="https://qiita.com/OKsaiyowa" target="_blank" rel="noopener">Qiita</a> で197本、シェーダーの学習記録として <a href="https://zenn.dev/kento_o" target="_blank" rel="noopener">Zenn</a> で95本の記事を書き、勉強会でも登壇してきました。外に向けて書き、話し続けた経験は、今はチームのドキュメントや AI エージェント向けのルールづくりという形で活きています。</p>
 
-      <div id="nav-pills-out" class="d-none d-md-block nav flex-column nav-pills col-md-2" id="v-pills-tab"
-        role="tablist" aria-orientation="vertical">
-        
-        
-        
-        <a class="nav-link active" id="Freelance-tab" data-toggle="pill" href="#Freelance" role="tab"
-          aria-controls="Freelance" aria-selected="true">
-          Freelance
-        </a>
-        
+      <h3>登壇</h3>
+      <ul class="list">
+        <li><span>2022</span><a href="https://www.docswell.com/s/KENTO/5NDRVK-2022-10-02-211126" target="_blank" rel="noopener">STYLYのマルチプラットフォーム対応を支える仕組み</a><small>CA.Unity #5</small></li>
+        <li><span>2022</span><a href="https://www.docswell.com/s/KENTO/KPQXQ5-2022-06-24-214120" target="_blank" rel="noopener">STYLYの新機能について</a><small>PLATEAU LT 01</small></li>
+        <li><span>2021</span><a href="https://www.slideshare.net/ssuserb5ac78/vr-247222391" target="_blank" rel="noopener">VR空間での翻訳システム</a><small>Roppongi.unity #9</small></li>
+        <li><span>2021</span><a href="https://www.slideshare.net/Gaprot/arcfa-243338832" target="_blank" rel="noopener">ARコンテンツ制作ツール CFA</a><small>Roppongi.unity #8</small></li>
+        <li><span>2020</span><a href="https://www.slideshare.net/ssuserb5ac78/oculusquest" target="_blank" rel="noopener">Quest の音声認識をVR空間で発表</a><small>FGDC vol.10</small></li>
+      </ul>
 
+      <h3>受賞</h3>
+      <ul class="list">
+        <li><span>最優秀賞</span><a href="https://ud-inc.co.jp/products/title_enxross/" target="_blank" rel="noopener">enXross HACKATHON 2024</a><small>258名・93チームの頂点</small></li>
+        <li><span>優勝</span><a href="https://youtu.be/vxG50ucajfc" target="_blank" rel="noopener">withAR × 新宿</a><small>VRとARを繋ぐコミュニケーション</small></li>
+        <li><span>2位</span><a href="https://twitter.com/okprogramming/status/1416701844068257794" target="_blank" rel="noopener">PLATEAU Hack Challenge</a><small>都市モデルでのオクルージョン</small></li>
+        <li><span>表彰</span><a href="https://www.slideshare.net/ssuserb5ac78/ar-249505224" target="_blank" rel="noopener">PLATEAU Business Challenge</a><small>初対面チームで</small></li>
+        <li><span>2位</span><a href="https://youtu.be/8BB_aQsxtuE" target="_blank" rel="noopener">withAR × 伝統工芸</a><small>Android / iOS / Nreal</small></li>
+        <li><span>2位</span>AROW スマホゲームアプリコンテスト<small>アイデア部門</small></li>
+        <li><span>最終選考</span><a href="https://xrc.or.jp/award2020/" target="_blank" rel="noopener">XR CREATIVE AWARD 2020</a><small>VR空間での手話</small></li>
+      </ul>
+    </section>
 
-         
-        
-        
-        <a class="nav-link" id="PsychicVRLab-tab" data-toggle="pill" href="#PsychicVRLab" role="tab" aria-controls="PsychicVRLab"
-          aria-selected="false">
-          Psychic VR Lab
-        </a>
-        
-
-         
-        
-        
-        <a class="nav-link" id="Up-frontier-tab" data-toggle="pill" href="#Up-frontier" role="tab" aria-controls="Up-frontier"
-          aria-selected="false">
-          Up-frontier
-        </a>
-        
-
-         
-        
-        
-        <a class="nav-link" id="NANOMedia-tab" data-toggle="pill" href="#NANOMedia" role="tab" aria-controls="NANOMedia"
-          aria-selected="false">
-          NANO Media
-        </a>
-        
-
-         
-        
-        
-        <a class="nav-link" id="AsahiSoftDrinkSales-tab" data-toggle="pill" href="#AsahiSoftDrinkSales" role="tab" aria-controls="AsahiSoftDrinkSales"
-          aria-selected="false">
-          Asahi Soft Drink Sales
-        </a>
-        
-
-         
-      </div>
-
-      <div class="tab-content col-md-4 d-none d-md-block" id="v-pills-tabContent">
-        
-        
-        
-        <div class="tab-pane fade show active" id="Freelance" role="tabpanel" aria-labelledby="Freelance-tab">
-          <div class="h4 text-muted">
-            <span class="text-primary">Freelance</span> - XR/Metaverse engineer
-          </div>
-          <div>
-            <small>Apr 2023</small>
-            -
-            <small>present</small>
-          </div>
-          <ul class="py-2 ex">
-            
-            <li class="ex-item">Independent as a freelance XR/metaverse engineer.</li>
-            
-          </ul>
-        </div>
-        
-
-        
-        
-        
-        
-        <div class="tab-pane fade" id="PsychicVRLab" role="tabpanel" aria-labelledby="PsychicVRLab-tab">
-          <div class="h4 text-muted">
-            <span class="text-primary">Psychic VR Lab</span> - XR engineer
-          </div>
-          <div>
-            <small>Oct 2021</small>
-            -
-            <small>Mar 2023</small>
-          </div>
-          <ul class="py-2 ex">
-            
-            <li class="ex-item">Work as Unity engineer and develop XR platform.</li>
-            
-          </ul>
-        </div>
-        
-
-        
-        
-        
-        
-        <div class="tab-pane fade" id="Up-frontier" role="tabpanel" aria-labelledby="Up-frontier-tab">
-          <div class="h4 text-muted">
-            <span class="text-primary">Up-frontier</span> - XR engineer
-          </div>
-          <div>
-            <small>Feb 2020</small>
-            -
-            <small>Sep 2021</small>
-          </div>
-          <ul class="py-2 ex">
-            
-            <li class="ex-item">Research and development about XR.</li>
-            
-          </ul>
-        </div>
-        
-
-        
-        
-        
-        
-        <div class="tab-pane fade" id="NANOMedia" role="tabpanel" aria-labelledby="NANOMedia-tab">
-          <div class="h4 text-muted">
-            <span class="text-primary">NANO Media</span> - VR engineer
-          </div>
-          <div>
-            <small>Oct 2018</small>
-            -
-            <small>Jan 2020</small>
-          </div>
-          <ul class="py-2 ex">
-            
-            <li class="ex-item">Develop VR application for safety education.</li>
-            
-          </ul>
-        </div>
-        
-
-        
-        
-        
-        
-        <div class="tab-pane fade" id="AsahiSoftDrinkSales" role="tabpanel" aria-labelledby="AsahiSoftDrinkSales-tab">
-          <div class="h4 text-muted">
-            <span class="text-primary">Asahi Soft Drink Sales</span> - Sales
-          </div>
-          <div>
-            <small>Apr 2017</small>
-            -
-            <small>Sep 2018</small>
-          </div>
-          <ul class="py-2 ex">
-            
-            <li class="ex-item">Vending machine management and sales.</li>
-            
-          </ul>
-        </div>
-        
-
-        
-        
-      </div>
-    </div>
-  </div>
-</section>
-
-    <section id="works">
-  <div class="container-fluid py-5">
-    <div class="text-dark text-center h3">Works</div>
-    <div class="row justify-content-center pt-2">
-      
-      <div class="col-md-8 pro m-3 shadow" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-        <div class="row">
-          <div class="col-md-6 bg-pro">
-            <img src="./images/Project.jpg" alt="Project" />
-          </div>
-          <div class="col-md-6 content-pro p-3 bg-light">
-            <div class="content-pro-top">
-              <h2>Project</h2>
-              <p class="card-text pt-2"></p>
-            </div>
-            <span class="float-right">
-               
-              <a class="btn btn-sm pro-btn btn-outline-info" target="_blank" href="https://forjobok.github.io/works/project/">
-                Know more...
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-md-8 pro m-3 shadow" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-        <div class="row">
-          <div class="col-md-6 bg-pro">
-            <img src="./images/Hackathon.png" alt="Hackathon &amp; Contest" />
-          </div>
-          <div class="col-md-6 content-pro p-3 bg-light">
-            <div class="content-pro-top">
-              <h2>Hackathon &amp; Contest</h2>
-              <p class="card-text pt-2"></p>
-            </div>
-            <span class="float-right">
-               
-              <a class="btn btn-sm pro-btn btn-outline-info" target="_blank" href="https://forjobok.github.io/works/hackathon_contest/">
-                Know more...
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-md-8 pro m-3 shadow" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-        <div class="row">
-          <div class="col-md-6 bg-pro">
-            <img src="./images/unity1week.png" alt="1week gamejam" />
-          </div>
-          <div class="col-md-6 content-pro p-3 bg-light">
-            <div class="content-pro-top">
-              <h2>1week gamejam</h2>
-              <p class="card-text pt-2"></p>
-            </div>
-            <span class="float-right">
-               
-              <a class="btn btn-sm pro-btn btn-outline-info" target="_blank" href="https://forjobok.github.io/works/unity1week/">
-                Know more...
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-md-8 pro m-3 shadow" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-        <div class="row">
-          <div class="col-md-6 bg-pro">
-            <img src="./images/Presentation.jpg" alt="Presentation" />
-          </div>
-          <div class="col-md-6 content-pro p-3 bg-light">
-            <div class="content-pro-top">
-              <h2>Presentation</h2>
-              <p class="card-text pt-2"></p>
-            </div>
-            <span class="float-right">
-               
-              <a class="btn btn-sm pro-btn btn-outline-info" target="_blank" href="https://forjobok.github.io/works/presentation/">
-                Know more...
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-md-8 pro m-3 shadow" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-        <div class="row">
-          <div class="col-md-6 bg-pro">
-            <img src="./images/Qiita.png" alt="Technical article" />
-          </div>
-          <div class="col-md-6 content-pro p-3 bg-light">
-            <div class="content-pro-top">
-              <h2>Technical article</h2>
-              <p class="card-text pt-2"></p>
-            </div>
-            <span class="float-right">
-               
-              <a class="btn btn-sm pro-btn btn-outline-info" target="_blank" href="https://forjobok.github.io/works/qiita/">
-                Know more...
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-md-8 pro m-3 shadow" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-        <div class="row">
-          <div class="col-md-6 bg-pro">
-            <img src="./images/Zenn.jpg" alt="Shader article" />
-          </div>
-          <div class="col-md-6 content-pro p-3 bg-light">
-            <div class="content-pro-top">
-              <h2>Shader article</h2>
-              <p class="card-text pt-2"></p>
-            </div>
-            <span class="float-right">
-               
-              <a class="btn btn-sm pro-btn btn-outline-info" target="_blank" href="https://forjobok.github.io/works/zenn/">
-                Know more...
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-md-8 pro m-3 shadow" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-        <div class="row">
-          <div class="col-md-6 bg-pro">
-            <img src="./images/DEVCommunity.png" alt="The minimum tips" />
-          </div>
-          <div class="col-md-6 content-pro p-3 bg-light">
-            <div class="content-pro-top">
-              <h2>The minimum tips</h2>
-              <p class="card-text pt-2"></p>
-            </div>
-            <span class="float-right">
-               
-              <a class="btn btn-sm pro-btn btn-outline-info" target="_blank" href="https://forjobok.github.io/works/devcommunity/">
-                Know more...
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-       
-    </div>
-  </div>
-</section>
-<script src="./js/jquery.slim.min.js"></script>
-<script src="./js/bootstrap.min.js"></script></div>
+    <footer>
+      <p>
+        <a href="https://github.com/ForJobOk" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://twitter.com/kento_xr" target="_blank" rel="noopener">X</a>
+        <a href="https://www.linkedin.com/in/onouekento/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://qiita.com/OKsaiyowa" target="_blank" rel="noopener">Qiita</a>
+        <a href="https://zenn.dev/kento_o" target="_blank" rel="noopener">Zenn</a>
+      </p>
+      <p class="note">最終更新 2026.10</p>
+    </footer>
+  </main>
 </body>
 </html>
