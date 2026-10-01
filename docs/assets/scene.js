@@ -1,6 +1,6 @@
 // Background "scene view": a perspective ground grid seen from eye height,
-// voxel props from past projects placed along the walk, and an axis gizmo.
-// Scrolling walks the camera forward. Redraws only on scroll / pointer / resize.
+// slowly rotating wireframe solids placed along the walk, and an axis gizmo.
+// Scrolling walks the camera forward.
 (function () {
   var grid = document.getElementById('grid');
   var gizmo = document.getElementById('gizmo');
@@ -12,189 +12,84 @@
 
   var EYE = 1.6, PATH_X = 5, FAR = 40, NEAR = 0.6;
 
-  // ---------- voxel models ----------
-  // Pixel art (front view, top row first) extruded `depth` voxels back.
-  function art(rows, pal, depth) {
-    var out = [], h = rows.length;
-    for (var r = 0; r < h; r++) for (var c = 0; c < rows[r].length; c++) {
-      var col = pal[rows[r][c]];
-      if (!col) continue;
-      for (var d = 0; d < depth; d++) out.push([c, h - 1 - r, d, col]);
-    }
-    return out;
+  // ---------- wireframe solids (unit size, centered) ----------
+  function edgesByLength(v) {            // connect every pair at the shortest distance
+    var min = Infinity, e = [];
+    for (var i = 0; i < v.length; i++) for (var j = i + 1; j < v.length; j++) min = Math.min(min, dist(v[i], v[j]));
+    for (i = 0; i < v.length; i++) for (j = i + 1; j < v.length; j++) if (dist(v[i], v[j]) < min * 1.01) e.push([i, j]);
+    return e;
   }
-  function solid(fn, R) {          // voxels where fn(x,y,z) returns a color
-    var out = [];
-    for (var x = -R; x <= R; x++) for (var y = 0; y <= R * 2; y++) for (var z = -R; z <= R; z++) {
-      var col = fn(x, y, z);
-      if (col) out.push([x, y, z, col]);
-    }
-    return out;
-  }
-  function seeded(seed) { return function () { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }; }
+  function dist(a, b) { var x = a[0] - b[0], y = a[1] - b[1], z = a[2] - b[2]; return Math.sqrt(x * x + y * y + z * z); }
+  function norm(v) { return v.map(function (p) { var l = Math.hypot(p[0], p[1], p[2]); return [p[0] / l, p[1] / l, p[2] / l]; }); }
+  function poly(v) { v = norm(v); return { v: v, e: edgesByLength(v) }; }
 
-  var M = {
-    headset: art([
-      'SDDDDDDDDS',
-      'SDGGGGGGDS',
-      'SDGGGGGGDS',
-      'SDDDDDDDDS'], { S: '#24272d', D: '#3b3f48', G: '#5d6474' }, 4),
-    glasses: art([
-      'KKKKKKKKKKKK',
-      'KBBBK..KBBBK',
-      'KKKKK..KKKKK'], { K: '#1d1f24', B: '#4a7bd0' }, 1).concat(
-      [[0, 2, 1, '#1d1f24'], [0, 2, 2, '#1d1f24'], [0, 2, 3, '#1d1f24'], [11, 2, 1, '#1d1f24'], [11, 2, 2, '#1d1f24'], [11, 2, 3, '#1d1f24']]),
-    helmet: solid(function (x, y, z) {
-      var r = Math.sqrt(x * x + y * y + z * z);
-      if (y === 0 && x * x + z * z <= 26) return '#e0ad1c';
-      return r <= 4.2 ? '#f2c230' : null;
-    }, 5),
-    extinguisher: solid(function (x, y, z) {
-      var r2 = x * x + z * z;
-      if (y <= 8 && r2 <= 4) return y === 8 ? '#9b1f1a' : '#d8342c';
-      if (y === 9 && r2 <= 1) return '#222';
-      if (y === 10 && x === 0 && z <= 0 && z >= -2) return '#222';
-      return null;
-    }, 5),
-    house: art([
-      '....RR....',
-      '...RRRR...',
-      '..RRRRRR..',
-      '.RRRRRRRR.',
-      'RRRRRRRRRR',
-      '.WWWWWWWW.',
-      '.WBBWWDDW.',
-      '.WBBWWDDW.',
-      '.WWWWWDDW.'], { R: '#b5483a', W: '#ede6d8', B: '#7fb2e0', D: '#7a5232' }, 7),
-    city: (function () {
-      var out = [], rnd = seeded(7);
-      var towers = [[0, 0, 7], [3, 0, 11], [6, 1, 5], [1, 3, 9], [4, 4, 14], [7, 3, 6]];
-      towers.forEach(function (t) {
-        var shade = ['#8a93a3', '#a3abb8', '#6f7889'][Math.floor(rnd() * 3)];
-        for (var x = 0; x < 2; x++) for (var z = 0; z < 2; z++) for (var y = 0; y < t[2]; y++)
-          out.push([t[0] + x, y, t[1] + z, y === t[2] - 1 ? '#c9d3e3' : shade]);
-      });
-      return out;
+  var P = (1 + Math.sqrt(5)) / 2;
+  var SOLIDS = {
+    tetra: poly([[1, 1, 1], [1, -1, -1], [-1, 1, -1], [-1, -1, 1]]),
+    cube: poly([[-1, -1, -1], [1, -1, -1], [-1, 1, -1], [1, 1, -1], [-1, -1, 1], [1, -1, 1], [-1, 1, 1], [1, 1, 1]]),
+    octa: poly([[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]]),
+    icosa: poly([[-1, P, 0], [1, P, 0], [-1, -P, 0], [1, -P, 0], [0, -1, P], [0, 1, P], [0, -1, -P], [0, 1, -P], [P, 0, -1], [P, 0, 1], [-P, 0, -1], [-P, 0, 1]]),
+    dodeca: (function () {
+      var a = 1 / P, v = [];
+      [-1, 1].forEach(function (x) { [-1, 1].forEach(function (y) { [-1, 1].forEach(function (z) { v.push([x, y, z]); }); }); });
+      [-1, 1].forEach(function (s) { [-1, 1].forEach(function (t) {
+        v.push([0, s * a, t * P]); v.push([s * a, t * P, 0]); v.push([s * P, 0, t * a]);
+      }); });
+      return poly(v);
     })(),
-    dome: solid(function (x, y, z) {
-      var r = Math.sqrt(x * x + (y * 1.9) * (y * 1.9) + z * z);
-      if (y === 0 && x * x + z * z <= 64) return '#9aa1ab';
-      return r <= 7.5 && r > 6.2 ? '#f1f2f4' : null;
-    }, 8),
-    kaiju: art([
-      '...GGG......',
-      '..GGWGG.....',
-      '..GGGGG.....',
-      '...GGGG..S..',
-      '.GGGGGGGGS..',
-      'GGGGGGGGGG..',
-      'GGGGGGGGGGGG',
-      '..GG..GG..GG',
-      '..GG..GG....'], { G: '#4f9a4a', W: '#fff', S: '#2f6b2b' }, 3),
-    heart: art([
-      '.RR.RR.',
-      'RRRRRRR',
-      'RRRRRRR',
-      '.RRRRR.',
-      '..RRR..',
-      '...R...'], { R: '#d64550' }, 2),
-    baseball: solid(function (x, y, z) {
-      var yy = y - 3, r = Math.sqrt(x * x + yy * yy + z * z);
-      if (r > 3.2) return null;
-      return Math.abs(Math.abs(x) - 1.6) < 0.6 && Math.abs(z) < 2.6 ? '#d8423a' : '#f4f1ea';
-    }, 4).concat((function () {
-      var out = [];
-      for (var i = 0; i < 16; i++) out.push([6, i, 0, i < 4 ? '#5b3a1f' : '#a8763e']);
-      return out;
-    })()),
-    fireworks: (function () {
-      var out = [], rnd = seeded(42), cols = ['#ff5a4e', '#ffd34a', '#59d0ff', '#ff7ad9', '#9dff6a'];
-      for (var i = 0; i < 90; i++) {
-        var u = rnd() * 2 - 1, t = rnd() * Math.PI * 2, s = Math.sqrt(1 - u * u), r = 5 + rnd() * 2;
-        out.push([Math.round(s * Math.cos(t) * r), Math.round(u * r) + 7, Math.round(s * Math.sin(t) * r), cols[i % cols.length]]);
+    torus: (function () {
+      var v = [], e = [], R = 0.7, r = 0.3, U = 24, V = 10;
+      for (var i = 0; i < U; i++) for (var j = 0; j < V; j++) {
+        var u = i / U * Math.PI * 2, w = j / V * Math.PI * 2;
+        v.push([(R + r * Math.cos(w)) * Math.cos(u), r * Math.sin(w), (R + r * Math.cos(w)) * Math.sin(u)]);
+        var k = i * V + j;
+        e.push([k, ((i + 1) % U) * V + j], [k, i * V + (j + 1) % V]);
       }
-      for (var y = 0; y < 5; y++) out.push([0, y, 0, '#e8e2d2']);
-      return out;
+      return { v: v, e: e };
     })(),
-    fishA: art([
-      '..OOO...',
-      '.OOOOO.O',
-      'OKOOOOOO',
-      '.OOOOO.O',
-      '..OOO...'], { O: '#f08a2c', K: '#222' }, 2),
-    fishB: art([
-      '..BBB...',
-      '.BBBBB.B',
-      'BKBBBBBB',
-      '.BBBBB.B',
-      '..BBB...'], { B: '#3fa7c9', K: '#222' }, 2),
-    pencil: art([
-      '.K.', 'TTT', 'YYY', 'YYY', 'YYY', 'YYY', 'YYY', 'YYY', 'YYY', 'SSS', 'PPP', 'PPP'],
-      { K: '#333', T: '#e4c38f', Y: '#f2c230', S: '#b8bcc4', P: '#ee8fa0' }, 3),
-    avatar: art([
-      'HHHHHH',
-      'HSSSSH',
-      'SKSSKS',
-      'SSSSSS',
-      'SSPPSS',
-      '.SSSS.'], { H: '#7b5cd6', S: '#f4d2bb', K: '#2a2a2a', P: '#e0707e' }, 5),
-    trophy: art([
-      'YYYYYYY',
-      'YYYYYYY',
-      '.YYYYY.',
-      '..YYY..',
-      '...Y...',
-      '..YYY..',
-      '.DDDDD.'], { Y: '#e6b422', D: '#5a4632' }, 3)
+    sphere: (function () {
+      var v = [], e = [], LAT = 7, LON = 14;
+      for (var i = 1; i < LAT; i++) for (var j = 0; j < LON; j++) {
+        var th = i / LAT * Math.PI, ph = j / LON * Math.PI * 2;
+        v.push([Math.sin(th) * Math.cos(ph), Math.cos(th), Math.sin(th) * Math.sin(ph)]);
+        var k = (i - 1) * LON + j;
+        e.push([k, (i - 1) * LON + (j + 1) % LON]);
+        if (i < LAT - 1) e.push([k, k + LON]);
+      }
+      var top = v.length, bot = top + 1;
+      v.push([0, 1, 0], [0, -1, 0]);
+      for (j = 0; j < LON; j++) { e.push([top, j]); e.push([bot, (LAT - 2) * LON + j]); }
+      return { v: v, e: e };
+    })()
   };
 
-  // [model, voxel size (m), x offset from path (+ right / - left), y (m)]
-  // Placed one after another along the walk; they only appear when close.
+  // [solid, size (m), x offset from path (+ right / - left), y center (m), spin speed]
   var PLACE = [
-    ['headset', 0.15, -5.5, 0.9],
-    ['helmet', 0.15, 5.5, 0],
-    ['extinguisher', 0.13, -5.5, 0],
-    ['house', 0.2, 6, 0],
-    ['glasses', 0.13, -5.5, 0.9],
-    ['city', 0.4, 8.5, 0],
-    ['kaiju', 0.18, -6, 0],
-    ['dome', 0.35, 9.5, 0],
-    ['heart', 0.2, -5.5, 0.9],
-    ['baseball', 0.13, 5.5, 0],
-    ['fireworks', 0.25, -8, 0],
-    ['fishA', 0.18, 5.5, 1.0],
-    ['fishB', 0.15, 6, 0.5],
-    ['pencil', 0.15, -5.5, 0],
-    ['avatar', 0.22, 5.5, 0.6],
-    ['trophy', 0.2, -5.5, 0]
-  ].map(function (p, i) { return p.concat(9 + i * 3.6); });
-  var SHOW = 15, SOLID = 9;                       // props fade in between these depths
-
-  // pre-bake world-space voxels with hidden-face culling
-  var VOX = [];
-  PLACE.forEach(function (p) {
-    var vox = M[p[0]], s = p[1], occ = {};
-    var minX = Infinity, maxX = -Infinity, minZ = Infinity, maxZ = -Infinity;
-    vox.forEach(function (v) {
-      occ[v[0] + ',' + v[1] + ',' + v[2]] = 1;
-      minX = Math.min(minX, v[0]); maxX = Math.max(maxX, v[0]);
-      minZ = Math.min(minZ, v[2]); maxZ = Math.max(maxZ, v[2]);
-    });
-    var cx = (minX + maxX + 1) / 2, cz = (minZ + maxZ + 1) / 2;
-    vox.forEach(function (v) {
-      var k = function (dx, dy, dz) { return occ[(v[0] + dx) + ',' + (v[1] + dy) + ',' + (v[2] + dz)]; };
-      VOX.push({
-        x: PATH_X + p[2] + (v[0] - cx) * s, y: p[3] + v[1] * s, z: p[4] + (v[2] - cz) * s, s: s,
-        rgb: hex(v[3]),
-        open: { top: !k(0, 1, 0), bottom: !k(0, -1, 0), front: !k(0, 0, -1), left: !k(-1, 0, 0), right: !k(1, 0, 0) }
-      });
-    });
+    ['icosa', 1.1, -5.5, 2.2, 0.25],
+    ['torus', 1.6, 6, 1.4, -0.2],
+    ['octa', 0.9, -6, 1.0, 0.35],
+    ['dodeca', 1.2, 5.5, 2.4, 0.18],
+    ['sphere', 1.3, -6.5, 1.8, -0.12],
+    ['cube', 0.9, 6, 0.9, 0.3],
+    ['tetra', 1.0, -5.5, 2.6, -0.28],
+    ['icosa', 1.5, 6.5, 1.6, 0.15],
+    ['torus', 1.2, -6, 2.0, 0.22],
+    ['octa', 1.3, 5.8, 2.2, -0.2],
+    ['dodeca', 0.9, -5.6, 1.1, 0.26],
+    ['sphere', 1.6, 6.5, 2.0, 0.1],
+    ['cube', 1.2, -6.2, 2.3, -0.18],
+    ['tetra', 1.2, 5.6, 1.2, 0.3],
+    ['icosa', 1.0, -5.6, 1.6, -0.24],
+    ['torus', 1.8, 6.4, 2.2, 0.14]
+  ].map(function (p, i) {
+    return { solid: SOLIDS[p[0]], size: p[1], x: PATH_X + p[2], y: p[3], z: 9 + i * 3.6, spin: p[4], tilt: (i * 0.7) % 1.2 };
   });
-  function hex(h) { var n = parseInt(h.slice(1), 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; }
+  var SHOW = 20, SOLID = 11;                       // solids fade in between these depths
 
   // ---------- rendering ----------
   var W = 0, H = 0, dpr = 1;
   var yaw = 0, yawT = 0, pitch = 0.09, pitchT = 0.09;
+  var start = performance.now();
 
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -206,16 +101,16 @@
     gz.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
-  function drawScene() {
+  var anyVisible = false;
+  function drawScene(time) {
     var isDark = dark.matches;
     var ink = isDark ? '255,255,255' : '0,0,0';
-    var bg = isDark ? [17, 17, 17] : [255, 255, 255];
     var f = H * 0.9;
     var horizon = H * 0.38 - Math.tan(pitch) * f;
     var travel = window.scrollY * 0.006;
     var cy = Math.cos(yaw), sy = Math.sin(yaw);
 
-    function cam(x, y, z) {                      // world -> camera space
+    function cam(x, y, z) {
       x -= PATH_X; z -= travel;
       return [x * cy - z * sy, y, x * sy + z * cy];
     }
@@ -239,36 +134,36 @@
       for (var z = z0 - 1; z < z0 + FAR; z += 4) line(x, Math.max(z, travel + NEAR + 0.01), x, z + 4, (x - PATH_X) % 10 === 0);
     for (var zl = z0; zl < z0 + FAR; zl++) line(PATH_X - span, zl, PATH_X + span, zl, zl % 10 === 0);
 
-    // voxels: collect visible faces, then paint far-to-near
-    var faces = [];
-    for (var i = 0; i < VOX.length; i++) {
-      var v = VOX[i], s = v.s;
-      var depth = v.z - travel;
-      if (depth < NEAR + s || depth > SHOW) continue;
-      var cam0 = cam(v.x + s / 2, v.y + s / 2, v.z + s / 2);
-      if (cam0[2] < NEAR) continue;
-      var t = Math.min(1, Math.max(0, (cam0[2] - SOLID) / (SHOW - SOLID)));
-      var mute = 0.25 + 0.75 * t * t * (3 - 2 * t);   // blend into the background when far
-      var X0 = v.x, X1 = v.x + s, Y0 = v.y, Y1 = v.y + s, Z0 = v.z, Z1 = v.z + s;
-      var camX = PATH_X;
-      if (v.open.front) faces.push([cam0[2], v, 1.0, mute, [[X0, Y0, Z0], [X1, Y0, Z0], [X1, Y1, Z0], [X0, Y1, Z0]]]);
-      if (v.open.top && Y1 < EYE) faces.push([cam0[2] - 0.001, v, 1.18, mute, [[X0, Y1, Z0], [X1, Y1, Z0], [X1, Y1, Z1], [X0, Y1, Z1]]]);
-      if (v.open.bottom && Y0 > EYE) faces.push([cam0[2] - 0.001, v, 0.7, mute, [[X0, Y0, Z0], [X1, Y0, Z0], [X1, Y0, Z1], [X0, Y0, Z1]]]);
-      if (v.open.left && X0 > camX) faces.push([cam0[2] - 0.0005, v, 0.82, mute, [[X0, Y0, Z0], [X0, Y0, Z1], [X0, Y1, Z1], [X0, Y1, Z0]]]);
-      if (v.open.right && X1 < camX) faces.push([cam0[2] - 0.0005, v, 0.82, mute, [[X1, Y0, Z0], [X1, Y0, Z1], [X1, Y1, Z1], [X1, Y1, Z0]]]);
-    }
-    faces.sort(function (a, b) { return b[0] - a[0]; });
-    for (var k = 0; k < faces.length; k++) {
-      var fc = faces[k], rgb = fc[1].rgb, lit = fc[2], m = fc[3];
-      var col = [0, 1, 2].map(function (j) { return Math.round(Math.min(255, rgb[j] * lit) * (1 - m) + bg[j] * m); });
-      g.fillStyle = 'rgb(' + col.join(',') + ')';
+    // wireframe solids
+    anyVisible = false;
+    g.lineWidth = 1.2;
+    PLACE.forEach(function (o) {
+      var depth = o.z - travel;
+      if (depth < NEAR + o.size || depth > SHOW) return;
+      anyVisible = true;
+      var t = Math.min(1, Math.max(0, (depth - SOLID) / (SHOW - SOLID)));
+      var alpha = (isDark ? 0.55 : 0.5) * (1 - t * t * (3 - 2 * t));
+      var a = o.tilt, b = o.spin * time;
+      var ca = Math.cos(a), sa = Math.sin(a), cb = Math.cos(b), sb = Math.sin(b);
+      var pts = o.solid.v.map(function (p) {
+        var x1 = p[0] * cb + p[2] * sb, z1 = -p[0] * sb + p[2] * cb;        // spin around y
+        var y2 = p[1] * ca - z1 * sa, z2 = p[1] * sa + z1 * ca;            // tilt around x
+        var c = cam(o.x + x1 * o.size, o.y + y2 * o.size, o.z + z2 * o.size);
+        return c[2] < NEAR ? null : screen(c);
+      });
+      g.strokeStyle = 'rgba(' + ink + ',' + alpha.toFixed(3) + ')';
       g.beginPath();
-      for (var n = 0; n < 4; n++) {
-        var p = screen(cam(fc[4][n][0], fc[4][n][1], fc[4][n][2]));
-        if (n === 0) g.moveTo(p[0], p[1]); else g.lineTo(p[0], p[1]);
+      o.solid.e.forEach(function (e) {
+        var p = pts[e[0]], q = pts[e[1]];
+        if (!p || !q) return;
+        g.moveTo(p[0], p[1]); g.lineTo(q[0], q[1]);
+      });
+      g.stroke();
+      if (o.solid.v.length <= 20) {                                         // mark vertices of the platonic solids
+        g.fillStyle = 'rgba(' + ink + ',' + (alpha * 1.2).toFixed(3) + ')';
+        pts.forEach(function (p) { if (p) g.fillRect(p[0] - 1.5, p[1] - 1.5, 3, 3); });
       }
-      g.closePath(); g.fill();
-    }
+    });
   }
 
   function drawGizmo() {
@@ -299,13 +194,16 @@
     gz.beginPath(); gz.arc(c, c, 3, 0, Math.PI * 2); gz.fill();
   }
 
+  // Redraw on input; keep animating only while a solid is on screen.
   var queued = false;
   function frame() {
     queued = false;
     yaw += (yawT - yaw) * (reduce ? 1 : 0.12);
     pitch += (pitchT - pitch) * (reduce ? 1 : 0.12);
-    drawScene(); drawGizmo();
-    if (!reduce && (Math.abs(yawT - yaw) > 0.0005 || Math.abs(pitchT - pitch) > 0.0005)) request();
+    var time = reduce ? 0 : (performance.now() - start) / 1000;
+    drawScene(time); drawGizmo();
+    var easing = Math.abs(yawT - yaw) > 0.0005 || Math.abs(pitchT - pitch) > 0.0005;
+    if (!reduce && !document.hidden && (anyVisible || easing)) request();
   }
   function request() { if (!queued) { queued = true; requestAnimationFrame(frame); } }
 
@@ -316,6 +214,7 @@
   }, { passive: true });
   window.addEventListener('scroll', request, { passive: true });
   window.addEventListener('resize', function () { resize(); request(); });
+  document.addEventListener('visibilitychange', request);
   dark.addEventListener('change', request);
   resize(); request();
 })();
