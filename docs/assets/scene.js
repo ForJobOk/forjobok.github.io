@@ -1,12 +1,10 @@
 // Background "scene view": a perspective ground grid seen from eye height,
-// slowly rotating wireframe solids placed along the walk, and an axis gizmo.
+// and slowly rotating wireframe solids placed along the walk.
 // Scrolling walks the camera forward.
 (function () {
   var grid = document.getElementById('grid');
-  var gizmo = document.getElementById('gizmo');
-  if (!grid || !gizmo) return;
+  if (!grid) return;
   var g = grid.getContext('2d');
-  var gz = gizmo.getContext('2d');
   var dark = matchMedia('(prefers-color-scheme: dark)');
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -96,9 +94,6 @@
     W = window.innerWidth; H = window.innerHeight;
     grid.width = W * dpr; grid.height = H * dpr;
     g.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var s = gizmo.clientWidth;
-    gizmo.width = s * dpr; gizmo.height = s * dpr;
-    gz.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
   var anyVisible = false;
@@ -166,34 +161,6 @@
     });
   }
 
-  function drawGizmo() {
-    var s = gizmo.clientWidth, c = s / 2, L = s * 0.36;
-    var cyw = Math.cos(yaw), syw = Math.sin(yaw), cp = Math.cos(pitch + 0.35), sp = Math.sin(pitch + 0.35);
-    var axes = [
-      { v: [1, 0, 0], col: '#e8524a', label: 'x' },
-      { v: [0, 1, 0], col: '#8bc34a', label: 'y' },
-      { v: [0, 0, 1], col: '#3e8ef7', label: 'z' }
-    ].map(function (a) {
-      var x = a.v[0], y = a.v[1], z = a.v[2];
-      var x1 = x * cyw - z * syw, z1 = x * syw + z * cyw;
-      var y1 = y * cp - z1 * sp, z2 = y * sp + z1 * cp;
-      return { col: a.col, label: a.label, x: c + x1 * L, y: c - y1 * L, z: z2 };
-    }).sort(function (a, b) { return b.z - a.z; });
-
-    gz.clearRect(0, 0, s, s);
-    gz.lineWidth = 2; gz.lineCap = 'round';
-    gz.font = '600 11px -apple-system, "Segoe UI", sans-serif';
-    gz.textAlign = 'center'; gz.textBaseline = 'middle';
-    axes.forEach(function (a) {
-      gz.strokeStyle = a.col; gz.fillStyle = a.col;
-      gz.beginPath(); gz.moveTo(c, c); gz.lineTo(a.x, a.y); gz.stroke();
-      gz.beginPath(); gz.arc(a.x, a.y, 7, 0, Math.PI * 2); gz.fill();
-      gz.fillStyle = '#fff'; gz.fillText(a.label, a.x, a.y + 0.5);
-    });
-    gz.fillStyle = dark.matches ? '#bbb' : '#555';
-    gz.beginPath(); gz.arc(c, c, 3, 0, Math.PI * 2); gz.fill();
-  }
-
   // Redraw on input; keep animating only while a solid is on screen.
   var queued = false;
   function frame() {
@@ -201,7 +168,7 @@
     yaw += (yawT - yaw) * (reduce ? 1 : 0.12);
     pitch += (pitchT - pitch) * (reduce ? 1 : 0.12);
     var time = reduce ? 0 : (performance.now() - start) / 1000;
-    drawScene(time); drawGizmo();
+    drawScene(time);
     var easing = Math.abs(yawT - yaw) > 0.0005 || Math.abs(pitchT - pitch) > 0.0005;
     if (!reduce && !document.hidden && (anyVisible || easing)) request();
   }
