@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="bg" cx="30%" cy="25%" r="90%">
+      <stop offset="0" stop-color="#1d1840"/>
+      <stop offset="1" stop-color="#05060d"/>
+    </radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <path d="M21.39 15.61L42.61 11.63 M21.39 15.61L41.38 26.53 M21.39 15.61L22.62 14.75 M21.39 15.61L9.03 31.58 M21.39 15.61L20.63 38.86 M42.61 11.63L41.38 26.53 M42.61 11.63L22.62 14.75 M42.61 11.63L43.37 25.14 M42.61 11.63L54.97 32.42 M21.39 52.37L42.61 48.39 M21.39 52.37L41.38 49.25 M21.39 52.37L22.62 37.47 M21.39 52.37L9.03 31.58 M21.39 52.37L20.63 38.86 M42.61 48.39L41.38 49.25 M42.61 48.39L22.62 37.47 M42.61 48.39L43.37 25.14 M42.61 48.39L54.97 32.42 M41.38 49.25L41.38 26.53 M41.38 49.25L54.97 32.42 M41.38 49.25L20.63 38.86 M41.38 26.53L54.97 32.42 M41.38 26.53L20.63 38.86 M22.62 37.47L22.62 14.75 M22.62 37.47L43.37 25.14 M22.62 37.47L9.03 31.58 M22.62 14.75L43.37 25.14 M22.62 14.75L9.03 31.58 M43.37 25.14L54.97 32.42 M9.03 31.58L20.63 38.86" fill="none" stroke="#6cf0ff" stroke-width="2.4" stroke-linecap="round" filter="url(#glow)"/>
+</svg>
