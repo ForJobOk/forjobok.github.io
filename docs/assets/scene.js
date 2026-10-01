@@ -1,25 +1,27 @@
-// Background "scene view": a perspective ground grid seen from eye height,
-// and slowly rotating wireframe solids placed along the walk.
-// Scrolling walks the camera forward.
+// Background: a geometric "space" seen from eye height.
+// Starfield with depth, a faint neon ground grid, and glowing wireframe solids
+// placed along the walk. Scrolling walks the camera forward.
 (function () {
-  var grid = document.getElementById('grid');
-  if (!grid) return;
-  var g = grid.getContext('2d');
-  var dark = matchMedia('(prefers-color-scheme: dark)');
+  var cv = document.getElementById('grid');
+  if (!cv) return;
+  var g = cv.getContext('2d');
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var EYE = 1.6, PATH_X = 5, FAR = 40, NEAR = 0.6;
+  var BG = '#05060d';
 
   // ---------- wireframe solids (unit size, centered) ----------
+  function dist(a, b) { var x = a[0] - b[0], y = a[1] - b[1], z = a[2] - b[2]; return Math.sqrt(x * x + y * y + z * z); }
   function edgesByLength(v) {            // connect every pair at the shortest distance
-    var min = Infinity, e = [];
-    for (var i = 0; i < v.length; i++) for (var j = i + 1; j < v.length; j++) min = Math.min(min, dist(v[i], v[j]));
+    var min = Infinity, e = [], i, j;
+    for (i = 0; i < v.length; i++) for (j = i + 1; j < v.length; j++) min = Math.min(min, dist(v[i], v[j]));
     for (i = 0; i < v.length; i++) for (j = i + 1; j < v.length; j++) if (dist(v[i], v[j]) < min * 1.01) e.push([i, j]);
     return e;
   }
-  function dist(a, b) { var x = a[0] - b[0], y = a[1] - b[1], z = a[2] - b[2]; return Math.sqrt(x * x + y * y + z * z); }
-  function norm(v) { return v.map(function (p) { var l = Math.hypot(p[0], p[1], p[2]); return [p[0] / l, p[1] / l, p[2] / l]; }); }
-  function poly(v) { v = norm(v); return { v: v, e: edgesByLength(v) }; }
+  function poly(v) {
+    v = v.map(function (p) { var l = Math.hypot(p[0], p[1], p[2]); return [p[0] / l, p[1] / l, p[2] / l]; });
+    return { v: v, e: edgesByLength(v) };
+  }
 
   var P = (1 + Math.sqrt(5)) / 2;
   var SOLIDS = {
@@ -46,8 +48,8 @@
       return { v: v, e: e };
     })(),
     sphere: (function () {
-      var v = [], e = [], LAT = 7, LON = 14;
-      for (var i = 1; i < LAT; i++) for (var j = 0; j < LON; j++) {
+      var v = [], e = [], LAT = 7, LON = 14, i, j;
+      for (i = 1; i < LAT; i++) for (j = 0; j < LON; j++) {
         var th = i / LAT * Math.PI, ph = j / LON * Math.PI * 2;
         v.push([Math.sin(th) * Math.cos(ph), Math.cos(th), Math.sin(th) * Math.sin(ph)]);
         var k = (i - 1) * LON + j;
@@ -60,6 +62,8 @@
       return { v: v, e: e };
     })()
   };
+
+  var NEON = ['108,240,255', '167,139,255', '255,122,217', '125,255,176'];
 
   // [solid, size (m), x offset from path (+ right / - left), y center (m), spin speed]
   var PLACE = [
@@ -80,9 +84,26 @@
     ['icosa', 1.0, -5.6, 1.6, -0.24],
     ['torus', 1.8, 6.4, 2.2, 0.14]
   ].map(function (p, i) {
-    return { solid: SOLIDS[p[0]], size: p[1], x: PATH_X + p[2], y: p[3], z: 9 + i * 3.6, spin: p[4], tilt: (i * 0.7) % 1.2 };
+    return { solid: SOLIDS[p[0]], size: p[1], x: PATH_X + p[2], y: p[3], z: 9 + i * 3.6, spin: p[4], tilt: (i * 0.7) % 1.2, rgb: NEON[i % NEON.length] };
   });
   var SHOW = 20, SOLID = 11;                       // solids fade in between these depths
+
+  // ---------- stars: far points in a slab ahead of the camera ----------
+  var STARS = [], STAR_DEPTH = 120;
+  (function () {
+    var seed = 11;
+    function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+    for (var i = 0; i < 520; i++) {
+      STARS.push({
+        x: PATH_X + (rnd() * 2 - 1) * 140,
+        y: 2 + rnd() * 70,
+        z: rnd() * STAR_DEPTH,
+        r: rnd() < 0.08 ? 1.6 : 0.5 + rnd() * 0.8,
+        tw: rnd() * Math.PI * 2,
+        tint: rnd() < 0.15 ? NEON[Math.floor(rnd() * NEON.length)] : '235,240,255'
+      });
+    }
+  })();
 
   // ---------- rendering ----------
   var W = 0, H = 0, dpr = 1;
@@ -92,14 +113,11 @@
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = window.innerWidth; H = window.innerHeight;
-    grid.width = W * dpr; grid.height = H * dpr;
+    cv.width = W * dpr; cv.height = H * dpr;
     g.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
-  var anyVisible = false;
-  function drawScene(time) {
-    var isDark = dark.matches;
-    var ink = isDark ? '255,255,255' : '0,0,0';
+  function draw(time) {
     var f = H * 0.9;
     var horizon = H * 0.38 - Math.tan(pitch) * f;
     var travel = window.scrollY * 0.006;
@@ -111,33 +129,60 @@
     }
     function screen(c) { return [W / 2 + f * c[0] / c[2], horizon + f * (EYE - c[1]) / c[2]]; }
 
-    g.clearRect(0, 0, W, H);
+    // deep space + faint nebulae
+    g.globalCompositeOperation = 'source-over';
+    g.fillStyle = BG; g.fillRect(0, 0, W, H);
+    g.globalCompositeOperation = 'lighter';
+    [[0.18, 0.22, 0.55, '90,70,200', 0.18], [0.85, 0.15, 0.45, '30,140,200', 0.14], [0.7, 0.75, 0.5, '200,60,160', 0.07]]
+      .forEach(function (n) {
+        var x = n[0] * W - yaw * W * 0.3, y = n[1] * H, r = n[2] * Math.max(W, H);
+        var grad = g.createRadialGradient(x, y, 0, x, y, r);
+        grad.addColorStop(0, 'rgba(' + n[3] + ',' + n[4] + ')');
+        grad.addColorStop(1, 'rgba(' + n[3] + ',0)');
+        g.fillStyle = grad; g.fillRect(0, 0, W, H);
+      });
 
-    // ground grid
+    // stars (wrap around the walk so the sky never runs out)
+    STARS.forEach(function (s) {
+      var z = travel + ((s.z - travel) % STAR_DEPTH + STAR_DEPTH) % STAR_DEPTH + 20;
+      var c = cam(s.x, s.y, z);
+      if (c[2] < NEAR) return;
+      var p = screen(c);
+      if (p[0] < -4 || p[0] > W + 4 || p[1] < -4 || p[1] > H + 4) return;
+      var a = 0.55 + 0.45 * Math.sin(time * 1.3 + s.tw);
+      g.fillStyle = 'rgba(' + s.tint + ',' + (a * 0.9).toFixed(3) + ')';
+      g.beginPath(); g.arc(p[0], p[1], s.r, 0, Math.PI * 2); g.fill();
+      if (s.r > 1.2) {                                   // a few bright stars get a halo
+        var halo = g.createRadialGradient(p[0], p[1], 0, p[0], p[1], s.r * 6);
+        halo.addColorStop(0, 'rgba(' + s.tint + ',' + (a * 0.35).toFixed(3) + ')');
+        halo.addColorStop(1, 'rgba(' + s.tint + ',0)');
+        g.fillStyle = halo;
+        g.beginPath(); g.arc(p[0], p[1], s.r * 6, 0, Math.PI * 2); g.fill();
+      }
+    });
+
+    // neon ground grid
     g.lineWidth = 1;
     function line(x1, z1, x2, z2, major) {
       var a = cam(x1, 0, z1), b = cam(x2, 0, z2);
       if (a[2] < NEAR || b[2] < NEAR) return;
       var d = (a[2] + b[2]) / 2;
-      var alpha = Math.max(0, 1 - d / FAR) * (major ? 0.16 : 0.07) * (isDark ? 0.9 : 1);
+      var alpha = Math.max(0, 1 - d / FAR) * (major ? 0.3 : 0.12);
       var p = screen(a), q = screen(b);
-      g.strokeStyle = 'rgba(' + ink + ',' + alpha.toFixed(3) + ')';
+      g.strokeStyle = 'rgba(90,170,255,' + alpha.toFixed(3) + ')';
       g.beginPath(); g.moveTo(p[0], p[1]); g.lineTo(q[0], q[1]); g.stroke();
     }
-    var z0 = Math.floor(travel) + 1, span = 40;
-    for (var x = -span + PATH_X; x <= span + PATH_X; x++)
-      for (var z = z0 - 1; z < z0 + FAR; z += 4) line(x, Math.max(z, travel + NEAR + 0.01), x, z + 4, (x - PATH_X) % 10 === 0);
-    for (var zl = z0; zl < z0 + FAR; zl++) line(PATH_X - span, zl, PATH_X + span, zl, zl % 10 === 0);
+    var z0 = Math.floor(travel) + 1, span = 40, x, z;
+    for (x = -span + PATH_X; x <= span + PATH_X; x++)
+      for (z = z0 - 1; z < z0 + FAR; z += 4) line(x, Math.max(z, travel + NEAR + 0.01), x, z + 4, (x - PATH_X) % 10 === 0);
+    for (z = z0; z < z0 + FAR; z++) line(PATH_X - span, z, PATH_X + span, z, z % 10 === 0);
 
-    // wireframe solids
-    anyVisible = false;
-    g.lineWidth = 1.2;
+    // glowing wireframe solids
     PLACE.forEach(function (o) {
       var depth = o.z - travel;
       if (depth < NEAR + o.size || depth > SHOW) return;
-      anyVisible = true;
       var t = Math.min(1, Math.max(0, (depth - SOLID) / (SHOW - SOLID)));
-      var alpha = (isDark ? 0.55 : 0.5) * (1 - t * t * (3 - 2 * t));
+      var alpha = 0.85 * (1 - t * t * (3 - 2 * t));
       var a = o.tilt, b = o.spin * time;
       var ca = Math.cos(a), sa = Math.sin(a), cb = Math.cos(b), sb = Math.sin(b);
       var pts = o.solid.v.map(function (p) {
@@ -146,31 +191,36 @@
         var c = cam(o.x + x1 * o.size, o.y + y2 * o.size, o.z + z2 * o.size);
         return c[2] < NEAR ? null : screen(c);
       });
-      g.strokeStyle = 'rgba(' + ink + ',' + alpha.toFixed(3) + ')';
-      g.beginPath();
+      var path = new Path2D();
       o.solid.e.forEach(function (e) {
         var p = pts[e[0]], q = pts[e[1]];
-        if (!p || !q) return;
-        g.moveTo(p[0], p[1]); g.lineTo(q[0], q[1]);
+        if (p && q) { path.moveTo(p[0], p[1]); path.lineTo(q[0], q[1]); }
       });
-      g.stroke();
-      if (o.solid.v.length <= 20) {                                         // mark vertices of the platonic solids
-        g.fillStyle = 'rgba(' + ink + ',' + (alpha * 1.2).toFixed(3) + ')';
-        pts.forEach(function (p) { if (p) g.fillRect(p[0] - 1.5, p[1] - 1.5, 3, 3); });
+      // glow pass, then a crisp core
+      g.shadowColor = 'rgba(' + o.rgb + ',' + alpha.toFixed(3) + ')';
+      g.shadowBlur = 14;
+      g.lineWidth = 2;
+      g.strokeStyle = 'rgba(' + o.rgb + ',' + (alpha * 0.55).toFixed(3) + ')';
+      g.stroke(path);
+      g.shadowBlur = 0;
+      g.lineWidth = 1;
+      g.strokeStyle = 'rgba(' + o.rgb + ',' + alpha.toFixed(3) + ')';
+      g.stroke(path);
+      if (o.solid.v.length <= 20) {                                         // vertices as points of light
+        g.fillStyle = 'rgba(255,255,255,' + alpha.toFixed(3) + ')';
+        pts.forEach(function (p) { if (p) { g.beginPath(); g.arc(p[0], p[1], 1.8, 0, Math.PI * 2); g.fill(); } });
       }
     });
+    g.globalCompositeOperation = 'source-over';
   }
 
-  // Redraw on input; keep animating only while a solid is on screen.
   var queued = false;
   function frame() {
     queued = false;
     yaw += (yawT - yaw) * (reduce ? 1 : 0.12);
     pitch += (pitchT - pitch) * (reduce ? 1 : 0.12);
-    var time = reduce ? 0 : (performance.now() - start) / 1000;
-    drawScene(time);
-    var easing = Math.abs(yawT - yaw) > 0.0005 || Math.abs(pitchT - pitch) > 0.0005;
-    if (!reduce && !document.hidden && (anyVisible || easing)) request();
+    draw(reduce ? 0 : (performance.now() - start) / 1000);
+    if (!reduce && !document.hidden) request();          // stars twinkle continuously
   }
   function request() { if (!queued) { queued = true; requestAnimationFrame(frame); } }
 
@@ -182,6 +232,5 @@
   window.addEventListener('scroll', request, { passive: true });
   window.addEventListener('resize', function () { resize(); request(); });
   document.addEventListener('visibilitychange', request);
-  dark.addEventListener('change', request);
   resize(); request();
 })();

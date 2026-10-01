@@ -1,19 +1,10 @@
 :root {
-  --bg: #fff;
-  --text: #222;
-  --sub: #666;
-  --line: #e5e5e5;
-  --link-line: #bbb;
-  color-scheme: light dark;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111;
-    --text: #ddd;
-    --sub: #999;
-    --line: #2a2a2a;
-    --link-line: #555;
-  }
+  --bg: #05060d;
+  --text: #e6e8f0;
+  --sub: #9aa0b4;
+  --line: rgba(255, 255, 255, .12);
+  --link-line: rgba(255, 255, 255, .35);
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
