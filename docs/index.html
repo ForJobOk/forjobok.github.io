@@ -28,9 +28,12 @@
   </script>
 </head>
 <body>
+  <canvas id="grid" class="scene-grid" aria-hidden="true"></canvas>
+  <div class="gizmo" aria-hidden="true"><canvas id="gizmo"></canvas><span>Persp</span></div>
+
   <main>
     <header class="top">
-      <h1>尾上 兼透</h1>
+      <h1><span class="selected">尾上 兼透</span></h1>
       <p class="role">XR / AI Engineer</p>
       <nav aria-label="ページ内リンク">
         <a href="#about">プロフィール</a>
@@ -241,5 +244,7 @@
       <p class="note">最終更新 2026.10</p>
     </footer>
   </main>
+
+  <script src="assets/scene.js" defer></script>
 </body>
 </html>

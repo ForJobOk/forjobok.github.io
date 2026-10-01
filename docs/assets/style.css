@@ -26,7 +26,25 @@ body {
   font-size: 16px;
   line-height: 1.9;
 }
-main { max-width: 720px; margin: 0 auto; padding: 96px 24px 64px; }
+main { position: relative; max-width: 720px; margin: 0 auto; padding: 96px 24px 64px; }
+
+/* ---- scene view decoration ---- */
+.scene-grid { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+.gizmo { position: fixed; top: 16px; right: 16px; width: 84px; text-align: center; pointer-events: none; }
+.gizmo canvas { display: block; width: 84px; height: 84px; }
+.gizmo span { display: block; margin-top: -8px; font-size: 12px; color: var(--sub); }
+@media (max-width: 900px) { .gizmo { display: none; } }
+
+.selected {
+  --sel: #f7a21b;
+  display: inline-block; padding: 2px 12px; margin-left: -12px;
+  outline: 1.5px solid var(--sel);
+  background:
+    linear-gradient(var(--sel), var(--sel)) 0 0 / 7px 7px no-repeat,
+    linear-gradient(var(--sel), var(--sel)) 100% 0 / 7px 7px no-repeat,
+    linear-gradient(var(--sel), var(--sel)) 0 100% / 7px 7px no-repeat,
+    linear-gradient(var(--sel), var(--sel)) 100% 100% / 7px 7px no-repeat;
+}
 
 a { color: inherit; text-decoration: underline; text-decoration-color: var(--link-line); text-underline-offset: 3px; }
 a:hover { text-decoration-color: currentColor; }
