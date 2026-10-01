@@ -178,17 +178,21 @@
     for (z = z0; z < z0 + FAR; z++) line(PATH_X - span, z, PATH_X + span, z, z % 10 === 0);
 
     // glowing wireframe solids
+    // On narrow screens pull them toward the path so they stay in view, and dim them a little.
+    var lat = Math.min(1, W / 1000), shrink = Math.sqrt(lat), dim = W < 700 ? 0.6 : 1;
     PLACE.forEach(function (o) {
+      var ox = PATH_X + (o.x - PATH_X) * lat;
       var depth = o.z - travel;
       if (depth < NEAR + o.size || depth > SHOW) return;
       var t = Math.min(1, Math.max(0, (depth - SOLID) / (SHOW - SOLID)));
-      var alpha = 0.85 * (1 - t * t * (3 - 2 * t));
+      var alpha = 0.85 * dim * (1 - t * t * (3 - 2 * t));
       var a = o.tilt, b = o.spin * time;
       var ca = Math.cos(a), sa = Math.sin(a), cb = Math.cos(b), sb = Math.sin(b);
       var pts = o.solid.v.map(function (p) {
         var x1 = p[0] * cb + p[2] * sb, z1 = -p[0] * sb + p[2] * cb;        // spin around y
         var y2 = p[1] * ca - z1 * sa, z2 = p[1] * sa + z1 * ca;            // tilt around x
-        var c = cam(o.x + x1 * o.size, o.y + y2 * o.size, o.z + z2 * o.size);
+        var sz = o.size * shrink;
+        var c = cam(ox + x1 * sz, o.y + y2 * sz, o.z + z2 * sz);
         return c[2] < NEAR ? null : screen(c);
       });
       var path = new Path2D();
