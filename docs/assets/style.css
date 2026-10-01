@@ -30,7 +30,6 @@ main { position: relative; max-width: 720px; margin: 0 auto; padding: 96px 24px 
 
 /* ---- scene view decoration ---- */
 .scene-grid { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
-@media (max-width: 900px) { 
 .romaji { margin-left: 10px; font-size: 16px; font-weight: 400; color: var(--sub); }
 
 a { color: inherit; text-decoration: underline; text-decoration-color: var(--link-line); text-underline-offset: 3px; }
